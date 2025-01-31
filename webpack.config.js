@@ -45,7 +45,7 @@ module.exports = (env={}, argv={}) => {
             extensions: [".tsx", ".ts", ".js"],
         },
         plugins: [
-            new CleanWebpackPlugin(),
+            //new CleanWebpackPlugin(),
             argv.mode === "development"
             ? new HtmlWebpackPlugin({
                 template: "./public/index.html"
