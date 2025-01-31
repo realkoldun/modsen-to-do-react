@@ -1,50 +1,102 @@
-# React + TypeScript + Vite
+# Тестовое задание Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Содержание
 
-Currently, two official plugins are available:
+- [Техническое задание](#Техническое-задание)
+- [Используемые технологии](#Используемые-технологии)
+- [Тестирование](#Тестирование)
+- [Полезные ссылки](#Полезные-ссылки)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Техническое задание
+Необходимо реализовать React-приложение ToDo list.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Необходимый функционал:
+- Добавление новой задачи;
+- Редактирование конкретной задачи;
+- Удаление конкретной задачи;
+- Удаление отмеченных задач;
+- Получение данных о пользователе с GitHub;
+- Возможность смены темы приложения.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Пример графического представления: 
+Ссылка на макет: [ToDo list](https://www.figma.com/design/vDAg1ykKrPYKJEW4fMO5aU/Modsen-Todo-List?node-id=0-3&t=yUcMTRERJh9AQvEp-0)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Также проект предполагает:
+- Организацию файловой структуры описанной в [structure](https://github.com/mkrivel/structure).
+- Реализацию обработки ошибок через паттерн *"Error Boundaries"*;
+- Реализацию адаптивной верстки до 390px;
+- Обязательная анимация наведения, нажатия на кнопки, прокрутки карусели и слайдеров, появления элементов на странице при рендере и скролле;
+- Использование context или redux для хранения темы приложения;
+- Оптимизацию приложения по необходимости;
+- Деплой приложения на платформу GitHub Pages или иные другие (Netlify, ...);
+- Настройку конфигурации ***babel***, ***eslint***, ***prettier***;
+- Использование алиасов для импортирования файлов;
+- Самомстоятельную настройку webpack для dev и production сборки;
+- Оптимизацию дизайна под мобильные устройства;
+- Использование языка typescript;
+- Использование кастомных хуков: https://my-js.org/docs/cheatsheet/custom-hooks/;
+- Придерживаться требований по написанию и организации кода react приложения. Ссылка на требования: [Требования к тестовому заданию](https://github.com/annaprystavka/requirements).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+
+#### Описание экранов
+
+1. [Главная страница](https://www.figma.com/design/vDAg1ykKrPYKJEW4fMO5aU/Modsen-Todo-List?node-id=0-72&t=yUcMTRERJh9AQvEp-0).
+Главная страница как и страница [Settings](https://www.figma.com/design/vDAg1ykKrPYKJEW4fMO5aU/Modsen-Todo-List?node-id=0-3&t=yUcMTRERJh9AQvEp-0) 
+включают в себя верхний блок, который предполагает реализацию перехода между страницами.
+Добавить новую задачу можно нажатием на кнопку "Add todo" и "Enter". Если добавлена хоть одна задача, то на UI отображается кнопка "Deleted selected".
+При нажатии на checkbox задача считается выполненной и все выбранные задачи таким образом можно удалить нажав кнопку "Deleted selected". 
+При редактировании задачи ее описание появляется в поле ввода и название кнопки "Add todo" меняется на "Edit". После нажатия на "Edit" новое значение сохраняется и содержимое кнопки меняется на "Add todo". 
+
+2. [Страница настроек](https://www.figma.com/design/vDAg1ykKrPYKJEW4fMO5aU/Modsen-Todo-List?node-id=0-3&t=yUcMTRERJh9AQvEp-0).
+На странице есть возможность смены темы приложения(светлая/темная). После перезагрузки приложения тема должна оставаться актуальная. При вводе имени и нажатии на поиск появляется карточка с логином и аватаром пользователя.
+Если пользователь не найден, то на странице отображается "Not found".
+
+
+## Используемые технологии:
+- ***node.js*** - программная платформа, основанная на движке V8 (транслирующем JavaScript в машинный код);
+- **_typescript_** - инструмент строгой типизации;
+- ***prettier*** - инструмент для форматирования кода;
+- ***eslint*** - линтер для JavaScript кода;
+- ***husky*** - современное решение для управления Git хуками;
+- ***babel*** - транспайлер, преобразующий код из одного стандарта в другой;
+- ***react*** - JavaScript-библиотека для создания пользовательских интерфейсов;
+- ***react-router-dom*** - набор навигационных компонентов;
+- ***redux*** - инструмент управления состоянием приложения;
+- ***styled-components*** - система стилизации react компонентов;
+- ***axios*** - инструмент для http-запросов на сервер;
+- ***webpack*** -  сборщик модулей, который позволяет скомпилировать JavaScript-модули в единый JS-файл;
+- ***yarn*** - менеджер пакетов;
+- ***jest*** — unit-тестирование.
+
+
+
+## Тестирование
+
+Реализовать тестирование c 30% покрытием функционала приложения:
+
+- Модуль добавления/удаления/форматирования задач;
+- Модуль смены темы приложения;
+- Модуль навигации;
+- Модуль поиска;
+- Утилиты.
+
+
+## Полезные ссылки:
+
+[React](https://reactjs.org/docs/getting-started.html)
+[React router dom](https://reacttraining.com/react-router/web/guides/quick-start)
+[React redux](https://react-redux.js.org/introduction/quick-start)
+[Styled-components](https://www.styled-components.com/docs)
+[Axios](https://www.npmjs.com/package/axios)
+[Jest](https://jestjs.io/ru/docs/getting-started)
+[Webpack](https://webpack.js.org/)
+[Styled-components](https://styled-components.com/docs)
+
+
+
+
+
