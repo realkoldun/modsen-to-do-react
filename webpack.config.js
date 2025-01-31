@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { plugins } = require('@babel/preset-env/lib/plugins-compat-data');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env={}, argv={}) => {
