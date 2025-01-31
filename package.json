@@ -19,8 +19,7 @@
     "lint:es:fix": "npm run lint:es -- --fix",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
-    "commit": "git add . && git commit -m"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
