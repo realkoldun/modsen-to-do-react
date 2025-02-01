@@ -36,7 +36,7 @@ export const StyledLinks = styled.nav`
     align-items: center;
 `
 
-export const StyledA = styled.a<{ $active: boolean }>`
+export const StyledLink = styled.a<{ $active: boolean }>`
     color: ${cssConstants.colors.white};
     text-decoration: none;
     margin-left: ${cssConstants.margin.l};

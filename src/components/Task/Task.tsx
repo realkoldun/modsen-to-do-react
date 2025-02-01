@@ -6,18 +6,27 @@ import {
     StyledTaskName,
 } from './css/TaskStyle'
 
-interface Task {
+interface TaskInterface {
+    key: string
     name: string
     isChecked: boolean
 }
 
-export default function Task({ name, isChecked }: Task) {
+export default function Task(props: TaskInterface) {
+    const { name, isChecked } = props
     const [task, setTask] = useState({ name, isChecked })
+    const handleCheckboxChange = () => {
+        setTask((prevTask) => ({
+            ...prevTask,
+            isChecked: !prevTask.isChecked, // Переключаем состояние
+        }))
+    }
     return (
         <StyledTaskContainer>
             <StyledCheckbox
                 type="checkbox"
                 checked={task.isChecked}
+                onChange={handleCheckboxChange}
             ></StyledCheckbox>
             <StyledTaskName>{task.name}</StyledTaskName>
             <StyledIconButton>

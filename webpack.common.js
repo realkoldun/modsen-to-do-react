@@ -6,14 +6,14 @@ module.exports = {
         app: './src/index.tsx',
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
     module: {
         rules: [
             {
-                test: /\.(gif|png|jpe?g|svg)$/i,
+                test: /\.(gif|png|jpe?g|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -49,6 +49,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.jsx?$/, // определяем тип файлов
+                exclude: /(node_modules)/,  // исключаем из обработки папку node_modules
+                loader: "babel-loader",   // определяем загрузчик
+                options:{
+                    presets:[ "@babel/preset-react"]    // используемые плагины
+                }
             },
         ]
     },

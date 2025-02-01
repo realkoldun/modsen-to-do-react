@@ -8,6 +8,7 @@ import './../../assets/icons/delete_icon.png'
 import './../../assets/icons/rename_icon.png'
 import Task from '../Task/Task'
 import TaskClass from '../../utils/TaskClass'
+import { nanoid } from 'nanoid'
 
 const TASKS = [
     {
@@ -29,7 +30,13 @@ const TASK_LIST = TASKS.map(
 
 export default function TaskList() {
     const Tasks = TASK_LIST.map((task) => {
-        return <Task name={task.taskName} isChecked={task.taskIsChecked} />
+        return (
+            <Task
+                key={nanoid()}
+                name={task.taskName}
+                isChecked={task.taskIsChecked}
+            />
+        )
     })
 
     return (
