@@ -13,6 +13,11 @@ export const StyledSection = styled.section`
     @media only screen and (min-width: 1300px) {
         padding: ${cssConstants.padding.m} ${cssConstants.padding.m};
     }
+    @media only screen and (max-width: 460px) {
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
 `
 
 export const StyledLegend = styled.legend`
@@ -66,5 +71,10 @@ export const StyledAddButton = styled.button`
     @media only screen and (max-width: 740px) {
         font-size: ${cssConstants.font.xxs};
         width: ${cssConstants.sizes.xs};
+    }
+    @media only screen and (max-width: 460px) {
+        margin-left: 0;
+        margin-top: ${cssConstants.margin.l};
+        min-width: ${cssConstants.sizes.full};
     }
 `
