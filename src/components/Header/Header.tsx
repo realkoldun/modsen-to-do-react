@@ -19,7 +19,7 @@ export default function Header() {
     return (
         <StyledHeader>
             <StyledHeaderText>
-                <h1 className="title">{HEADER_APP_TITLE}</h1>
+                <h1>{HEADER_APP_TITLE}</h1>
                 <StyledLinks>
                     <StyledA
                         $active={activeLink === HEADER_HOME_TITLE}

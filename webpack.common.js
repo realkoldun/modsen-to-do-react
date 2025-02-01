@@ -19,10 +19,11 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'images/', // Убедитесь, что здесь правильный путь
+                            outputPath: 'assets/icons/',
+                            publicPath: 'assets/icons/',
                         },
                     },
-                    'image-webpack-loader', // Если нужно оптимизировать изображения
+                    'image-webpack-loader',
                 ],
             },
             {
