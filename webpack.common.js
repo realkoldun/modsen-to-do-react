@@ -68,5 +68,5 @@ module.exports = {
             title: 'Production',
             template: "./public/index.html",
         }),
-    ]
+    ],
 };
