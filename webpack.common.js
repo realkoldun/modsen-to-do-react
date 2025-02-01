@@ -13,6 +13,32 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/', // Убедитесь, что здесь правильный путь
+                        },
+                    },
+                    'image-webpack-loader', // Если нужно оптимизировать изображения
+                ],
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/font/',
+                            publicPath: 'assets/font/',
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -22,13 +48,6 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"],
-            },
-            {
-                test: /\.(gif|png|jpe?g|svg)$/i,
-                use: ["file-loader",
-                    {
-                        loader: 'image-webpack-loader',
-                    }]
             },
         ]
     },
