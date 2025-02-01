@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import './index.css'
-import App from './App'
+import Header from './components/Header/Header'
+import { GlobalStyle } from './GlobalStyle'
+import AddTask from './components/AddTask/AddTask'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
-        <App />
+        <GlobalStyle />
+        <Header />
+        <AddTask />
     </React.StrictMode>,
 )
