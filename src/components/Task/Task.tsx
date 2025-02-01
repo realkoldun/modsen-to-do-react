@@ -5,8 +5,6 @@ import {
     StyledTaskContainer,
     StyledTaskName,
 } from './css/TaskStyle'
-import TaskClass from '../../utils/TaskClass'
-import { StyledSeparateLine } from '../TaskList/css/TaskListStyle'
 
 interface Task {
     name: string

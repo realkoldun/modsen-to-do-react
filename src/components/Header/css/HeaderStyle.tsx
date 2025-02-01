@@ -1,5 +1,5 @@
 import { cssConstants } from '../../../constants/styledConstants'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
     display: flex;
