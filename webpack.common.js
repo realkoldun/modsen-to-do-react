@@ -13,6 +13,19 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/font/',
+                            publicPath: 'assets/font/',
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.(gif|png|jpe?g|svg)$/,
                 use: [
                     {
@@ -27,19 +40,6 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'assets/font/',
-                            publicPath: 'assets/font/',
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
@@ -51,11 +51,11 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             },
             {
-                test: /\.jsx?$/, // определяем тип файлов
-                exclude: /(node_modules)/,  // исключаем из обработки папку node_modules
-                loader: "babel-loader",   // определяем загрузчик
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: "babel-loader",
                 options:{
-                    presets:[ "@babel/preset-react"]    // используемые плагины
+                    presets:[ "@babel/preset-react"]
                 }
             },
         ]

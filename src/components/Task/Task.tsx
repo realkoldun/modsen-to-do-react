@@ -6,6 +6,9 @@ import {
     StyledTaskName,
 } from './css/TaskStyle'
 
+import DELETE_ICON from '../../assets/icons/delete_icon.png'
+import RENAME_ICON from '../../assets/icons/rename_icon.png'
+
 interface TaskInterface {
     key: string
     name: string
@@ -30,10 +33,10 @@ export default function Task(props: TaskInterface) {
             ></StyledCheckbox>
             <StyledTaskName>{task.name}</StyledTaskName>
             <StyledIconButton>
-                <img src="./../../assets/icons/rename_icon.png" alt="rename" />
+                <img src={DELETE_ICON} alt="delete" />
             </StyledIconButton>
             <StyledIconButton>
-                <img src="./../../assets/icons/delete_icon.png" alt="delete" />
+                <img src={RENAME_ICON} alt="delete" />
             </StyledIconButton>
         </StyledTaskContainer>
     )

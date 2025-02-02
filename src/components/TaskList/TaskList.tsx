@@ -4,8 +4,6 @@ import {
     StyledSection,
     StyledSeparateLine,
 } from './css/TaskListStyle'
-import './../../assets/icons/delete_icon.png'
-import './../../assets/icons/rename_icon.png'
 import Task from '../Task/Task'
 import TaskClass from '../../utils/TaskClass'
 import { nanoid } from 'nanoid'
