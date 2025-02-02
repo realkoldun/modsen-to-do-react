@@ -1,8 +1,10 @@
 import React from 'react'
 import {
+    StyledDeleteButton,
     StyledHeaderText,
     StyledSection,
     StyledSeparateLine,
+    StyledTasksContainer,
 } from './css/TaskListStyle'
 import Task from '../Task/Task'
 import TaskClass from '../../utils/TaskClass'
@@ -14,7 +16,15 @@ const TASKS = [
         isCompleted: false,
     },
     {
-        name: 'kjfdkjdsjlkdfsfdsf',
+        name: 'kjfdkjdsjlkdfsfdsfjfdsjhkfdhkjfdshkjfdjhksjhkfdskjhfdshkjfdshkjdshkfjksjhfdjhkfdsjhk',
+        isCompleted: false,
+    },
+    {
+        name: 'kjfdkjdsjlkf',
+        isCompleted: false,
+    },
+    {
+        name: 'kjfdkjdsjlkf',
         isCompleted: false,
     },
     {
@@ -41,8 +51,9 @@ export default function TaskList() {
         <StyledSection>
             <StyledHeaderText>Task List</StyledHeaderText>
             <StyledSeparateLine />
-            {Tasks}
+            <StyledTasksContainer>{Tasks}</StyledTasksContainer>
             <StyledSeparateLine />
+            <StyledDeleteButton>Deleted Selected</StyledDeleteButton>
         </StyledSection>
     )
 }

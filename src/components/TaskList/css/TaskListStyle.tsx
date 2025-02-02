@@ -2,14 +2,19 @@ import { cssConstants } from '../../../constants/styledConstants'
 import styled from 'styled-components'
 
 export const StyledSection = styled.section`
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: ${cssConstants.sizes.xxl};
-    max-width: ${cssConstants.sizes.xxxl};
-    padding: ${cssConstants.padding.m} ${cssConstants.padding.m};
-    box-sizing: border-box;
+    padding: ${cssConstants.padding.m} ${cssConstants.padding.l};
+`
+export const StyledTasksContainer = styled.div`
+    overflow-y: auto;
+    max-height: ${cssConstants.sizes.xl};
+    width: ${cssConstants.sizes.full};
+    #element::-webkit-scrollbar {
+        display: none;
+    }
+    @media only screen and (min-width: ${cssConstants.screenWidth.wide}) {
+        max-height: ${cssConstants.sizes.xxxl};
+    }
 `
 
 export const StyledSeparateLine = styled.hr`
@@ -19,8 +24,12 @@ export const StyledSeparateLine = styled.hr`
 
 export const StyledHeaderText = styled.h2`
     font-size: ${cssConstants.font.xl};
-    @media only screen and (min-width: 1300px) {
+    @media only screen and (min-width: ${cssConstants.screenWidth.wide}) {
         font-size: ${cssConstants.font.xxxl};
         min-height: ${cssConstants.sizes.xxxs};
     }
+`
+
+export const StyledDeleteButton = styled.button`
+    background-color: ${cssConstants.colors.pinkie};
 `

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import {
     StyledCheckbox,
     StyledIconButton,
+    StyledIconContainer,
+    StyledSection,
     StyledTaskContainer,
     StyledTaskName,
 } from './css/TaskStyle'
@@ -21,23 +23,27 @@ export default function Task(props: TaskInterface) {
     const handleCheckboxChange = () => {
         setTask((prevTask) => ({
             ...prevTask,
-            isChecked: !prevTask.isChecked, // Переключаем состояние
+            isChecked: !prevTask.isChecked,
         }))
     }
     return (
-        <StyledTaskContainer>
-            <StyledCheckbox
-                type="checkbox"
-                checked={task.isChecked}
-                onChange={handleCheckboxChange}
-            ></StyledCheckbox>
-            <StyledTaskName>{task.name}</StyledTaskName>
-            <StyledIconButton>
-                <img src={DELETE_ICON} alt="delete" />
-            </StyledIconButton>
-            <StyledIconButton>
-                <img src={RENAME_ICON} alt="delete" />
-            </StyledIconButton>
-        </StyledTaskContainer>
+        <StyledSection>
+            <StyledTaskContainer>
+                <StyledCheckbox
+                    type="checkbox"
+                    checked={task.isChecked}
+                    onChange={handleCheckboxChange}
+                ></StyledCheckbox>
+                <StyledTaskName>{task.name}</StyledTaskName>
+            </StyledTaskContainer>
+            <StyledIconContainer>
+                <StyledIconButton>
+                    <img src={DELETE_ICON} alt="delete" />
+                </StyledIconButton>
+                <StyledIconButton>
+                    <img src={RENAME_ICON} alt="delete" />
+                </StyledIconButton>
+            </StyledIconContainer>
+        </StyledSection>
     )
 }
