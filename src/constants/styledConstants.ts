@@ -14,7 +14,7 @@ export const cssConstants = {
         max: '1500px',
         xxxl: '800px',
         xxl: '75%',
-        xl: '300px',
+        xl: '600px',
         l: '120px',
         m: '60%',
         s: '20%',
