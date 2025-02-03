@@ -15,24 +15,27 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "simple-import-sort"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "react-app",
     "react-app/jest",
     "prettier"
   ],
   "rules": {
     "prettier/prettier": "error",
-    "no-console": "error"
+    "no-console": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "ignorePatterns": ["**/*.css","**/*.scss"]
+  "ignorePatterns": ["**/*.css","**/*.scss", "./dist", "./node_modules"]
 }
