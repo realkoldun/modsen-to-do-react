@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -26,10 +28,9 @@
     ]
   },
   "lint-staged": {
-    "**/*.{js,jsx}": [
-      "npm run lint",
-      "prettier --write"
-    ]
+    "*.ts": "npx tsc --noemit",
+    "*.{js,jsx,ts,tsx}": "npx eslint",
+    "*.{js,jsx,ts,tsx,html,css}": "npx prettier --check"
   },
   "browserslist": {
     "production": [
