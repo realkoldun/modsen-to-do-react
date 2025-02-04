@@ -13,6 +13,33 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/font/',
+                            publicPath: 'assets/font/',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/icons/',
+                            publicPath: 'assets/icons/',
+                        },
+                    },
+                    'image-webpack-loader',
+                ],
+            },
+            {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
                 use: {
