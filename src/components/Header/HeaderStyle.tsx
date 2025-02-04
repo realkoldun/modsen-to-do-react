@@ -1,5 +1,6 @@
-import { cssConstants } from '../../constants/styledConstants'
 import styled from 'styled-components'
+
+import { cssConstants } from '../../constants/styledConstants'
 
 export const StyledHeader = styled.header`
     display: flex;

@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
-
-import {
-    StyledHeader,
-    StyledHeaderText,
-    StyledLinks,
-    StyledLink,
-} from './HeaderStyle'
+import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import {
     HEADER_APP_TITLE,
-    HEADER_HOME_TITLE,
-    HEADER_SETTINGS_TITLE,
     HEADER_HOME_PATH,
-    HEADER_SETTINGS_PATH
+    HEADER_HOME_TITLE,
+    HEADER_SETTINGS_PATH,
+    HEADER_SETTINGS_TITLE,
 } from '../../constants/textConstants'
-import { useLocation, useNavigate } from 'react-router-dom'
+import {
+    StyledHeader,
+    StyledHeaderText,
+    StyledLink,
+    StyledLinks,
+} from './HeaderStyle'
 
 export default function Header() {
     const activeLink = useLocation().pathname

@@ -1,6 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
-import { cssConstants } from './constants/styledConstants'
 import './assets/font/Jost.ttf'
+
+import { createGlobalStyle } from 'styled-components'
+
+import { cssConstants } from './constants/styledConstants'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
