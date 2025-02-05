@@ -1,9 +1,7 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import {
-    PATHES,
-} from '@/constants/textConstants'
+import { PATHES } from '@/constants/textConstants'
 
 import {
     StyledHeader,
