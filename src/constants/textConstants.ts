@@ -1,7 +1,5 @@
-export const HEADER_APP_TITLE = 'Modsen Todo List'
+export const HEADER_APP_TITLE = ''
 export const HEADER_HOME_TITLE = 'Home'
 export const HEADER_HOME_PATH = '/'
 export const HEADER_SETTINGS_TITLE = 'Settings'
 export const HEADER_SETTINGS_PATH = '/settings'
-export const INPUT_TASK_LEGEND = 'Add a new task'
-export const INPUT_TASK_PLACEHOLDER = 'input your task'

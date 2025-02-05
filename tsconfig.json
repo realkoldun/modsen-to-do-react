@@ -2,11 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@constants":  ["src/constants"],
-      "@components": ["src/components"],
-      "@pages": ["src/pages"],
-      "@assets": ["src/assets"],
-      "@": ["."]
+      "@/*": ["*"]
     },
     "alwaysStrict": true,
     "noImplicitAny": true,
@@ -17,6 +13,5 @@
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-  },
-  "include": ["src"]
+  }
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { theme } from '../../constants/theme'
+import { theme } from '@/constants/theme'
 
 export const StyledHeader = styled.header`
     display: flex;

@@ -2,12 +2,12 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import {
-    HEADER_APP_TITLE,
     HEADER_HOME_PATH,
     HEADER_HOME_TITLE,
     HEADER_SETTINGS_PATH,
     HEADER_SETTINGS_TITLE,
-} from '@constants/textConstants'
+} from '@/constants/textConstants'
+
 import {
     StyledHeader,
     StyledHeaderText,
@@ -21,7 +21,7 @@ export default function Header() {
     return (
         <StyledHeader>
             <StyledHeaderText>
-                <h1>{HEADER_APP_TITLE}</h1>
+                <h1>Modsen Todo List</h1>
                 <StyledLinks>
                     <StyledLink
                         $active={activeLink === HEADER_HOME_PATH}

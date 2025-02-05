@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -60,13 +61,15 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".tsx", ".ts", ".js", ".jsx"],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
         alias: {
-            "@constants": path.resolve(__dirname, "src/constants"),
-            "@components": path.resolve(__dirname, "src/components"),
-            "@pages": path.resolve(__dirname, "src/pages"),
-            "@assets": path.resolve(__dirname, "src/assets")
-        }
+            "@": path.resolve(__dirname, 'src'),
+        },
+        plugins: [
+            new TsconfigPathsPlugin({
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+            })
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
