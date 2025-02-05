@@ -1,5 +1,4 @@
-export const HEADER_APP_TITLE = ''
-export const HEADER_HOME_TITLE = 'Home'
-export const HEADER_HOME_PATH = '/'
-export const HEADER_SETTINGS_TITLE = 'Settings'
-export const HEADER_SETTINGS_PATH = '/settings'
+export const PATHES = {
+    home: '/',
+    settings: '/settings',
+}

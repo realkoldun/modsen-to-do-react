@@ -2,10 +2,7 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import {
-    HEADER_HOME_PATH,
-    HEADER_HOME_TITLE,
-    HEADER_SETTINGS_PATH,
-    HEADER_SETTINGS_TITLE,
+    PATHES,
 } from '@/constants/textConstants'
 
 import {
@@ -24,20 +21,20 @@ export default function Header() {
                 <h1>Modsen Todo List</h1>
                 <StyledLinks>
                     <StyledLink
-                        $active={activeLink === HEADER_HOME_PATH}
+                        $active={activeLink === PATHES.home}
                         onClick={() => {
-                            nav(HEADER_HOME_PATH)
+                            nav(PATHES.home)
                         }}
                     >
-                        {HEADER_HOME_TITLE}
+                        Home
                     </StyledLink>
                     <StyledLink
-                        $active={activeLink === HEADER_SETTINGS_PATH}
+                        $active={activeLink === PATHES.settings}
                         onClick={() => {
-                            nav(HEADER_SETTINGS_PATH)
+                            nav(PATHES.settings)
                         }}
                     >
-                        {HEADER_SETTINGS_TITLE}
+                        Settings
                     </StyledLink>
                 </StyledLinks>
             </StyledHeaderText>
