@@ -7,13 +7,13 @@ import {
     HEADER_HOME_TITLE,
     HEADER_SETTINGS_PATH,
     HEADER_SETTINGS_TITLE,
-} from '../../constants/textConstants'
+} from '@constants/textConstants'
 import {
     StyledHeader,
     StyledHeaderText,
     StyledLink,
     StyledLinks,
-} from './HeaderStyle'
+} from './style'
 
 export default function Header() {
     const activeLink = useLocation().pathname
@@ -26,7 +26,7 @@ export default function Header() {
                     <StyledLink
                         $active={activeLink === HEADER_HOME_PATH}
                         onClick={() => {
-                            nav('/')
+                            nav(HEADER_HOME_PATH)
                         }}
                     >
                         {HEADER_HOME_TITLE}
@@ -34,7 +34,7 @@ export default function Header() {
                     <StyledLink
                         $active={activeLink === HEADER_SETTINGS_PATH}
                         onClick={() => {
-                            nav('/settings')
+                            nav(HEADER_SETTINGS_PATH)
                         }}
                     >
                         {HEADER_SETTINGS_TITLE}

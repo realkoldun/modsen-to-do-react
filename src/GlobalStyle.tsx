@@ -2,7 +2,7 @@ import './assets/font/Jost.ttf'
 
 import { createGlobalStyle } from 'styled-components'
 
-import { cssConstants } from './constants/styledConstants'
+import { theme } from './constants/theme'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -16,49 +16,49 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-items: center;
-    height: ${cssConstants.sizes.full};
+    height: ${theme.sizes.full};
     margin: 0;
     font-family: "Jost", sans-serif;
-    background-color: ${cssConstants.colors.white};
-    color: ${cssConstants.colors.black};
-    border-color: ${cssConstants.colors.white};
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.black};
+    border-color: ${theme.colors.white};
   }
   
   .main-container {
-    width:${cssConstants.sizes.full};
+    width:${theme.sizes.full};
     display: flex;
     align-items: center;
     flex-direction: column;
   }
   button {
     font-family: 'Jost', sans-serif;
-    font-size: ${cssConstants.font.m};
-    min-height: ${cssConstants.sizes.xxxs};
-    min-width: ${cssConstants.sizes.s};
-    color: ${cssConstants.colors.white};
-    border-radius: ${cssConstants.sizes.xs};
-    margin-left: ${cssConstants.margin.l};
+    font-size: ${theme.font.m};
+    min-height: ${theme.sizes.xxxs};
+    min-width: ${theme.sizes.s};
+    color: ${theme.colors.white};
+    border-radius: ${theme.sizes.xs};
+    margin-left: ${theme.margin.l};
     cursor: pointer;
-    @media only screen and (min-width: ${cssConstants.screenWidth.wide}) {
-        font-size: ${cssConstants.font.xl};
-        min-height: ${cssConstants.sizes.xxxs};
+    @media only screen and (min-width: ${theme.screenWidth.wide}) {
+        font-size: ${theme.font.xl};
+        min-height: ${theme.sizes.xxxs};
     }
-    @media only screen and (max-width: ${cssConstants.screenWidth.small}) {
-        font-size: ${cssConstants.font.xxs};
-        width: ${cssConstants.sizes.xs};
+    @media only screen and (max-width: ${theme.screenWidth.small}) {
+        font-size: ${theme.font.xxs};
+        width: ${theme.sizes.xs};
     }
-    @media only screen and (max-width:  ${cssConstants.screenWidth.mobile}) {
+    @media only screen and (max-width:  ${theme.screenWidth.mobile}) {
         margin-left: 0;
-        margin-top: ${cssConstants.margin.l};
-        min-width: ${cssConstants.sizes.full};
+        margin-top: ${theme.margin.l};
+        min-width: ${theme.sizes.full};
     }
   }
   section {
     display: flex;
     justify-items: center;
     align-items: center;
-    width: ${cssConstants.sizes.xxl};
-    max-width: ${cssConstants.sizes.xxxl};
+    width: ${theme.sizes.xxl};
+    max-width: ${theme.sizes.xxxl};
     box-sizing: border-box;
   }
 `

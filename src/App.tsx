@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 
-import Header from './components/Header/Header'
+import Header from './components/Header/index'
 import {
     HEADER_HOME_PATH,
     HEADER_SETTINGS_PATH,
