@@ -10,10 +10,14 @@ import { BurgerMenuContainer, MenuContainer } from './styled'
 interface BurgerMenuProps {
     open: boolean
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
-    active: string
+    activePath: string
 }
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({ open, setOpen, active }) => {
+const BurgerMenu: React.FC<BurgerMenuProps> = ({
+    open,
+    setOpen,
+    activePath,
+}) => {
     const nav = useNavigate()
 
     const handleNavigateOnClick = (path: string): void => {
@@ -35,13 +39,13 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ open, setOpen, active }) => {
             {open && (
                 <MenuContainer>
                     <StyledLink
-                        $active={active === PATHES.home.path}
+                        $active={activePath === PATHES.home.path}
                         onClick={() => handleNavigateOnClick(PATHES.home.path)}
                     >
                         {PATHES.home.name}
                     </StyledLink>
                     <StyledLink
-                        $active={active === PATHES.settings.path}
+                        $active={activePath === PATHES.settings.path}
                         onClick={() =>
                             handleNavigateOnClick(PATHES.settings.path)
                         }

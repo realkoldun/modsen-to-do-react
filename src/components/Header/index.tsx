@@ -40,7 +40,7 @@ export default function Header() {
                     <BurgerMenu
                         open={open}
                         setOpen={setOpen}
-                        active={activeLink}
+                        activePath={activeLink}
                     />
                 </S.StyledBurgerMenu>
             </S.StyledHeaderText>
