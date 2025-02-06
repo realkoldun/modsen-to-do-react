@@ -2,7 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { StyledLink } from '@/components/Header/styled'
-import { NAMES, PATHES } from '@/constants/textConstants'
+import { PATHES } from '@/constants/textConstants'
+import handleNavigate from '@/utils/handleNavigate'
 
 import { BurgerMenuContainer, MenuContainer } from './styled'
 
@@ -15,18 +16,18 @@ interface BurgerMenuProps {
 const BurgerMenu: React.FC<BurgerMenuProps> = ({ open, setOpen, active }) => {
     const nav = useNavigate()
 
-    const handleNavigateOnClick = (
-        e: React.MouseEvent<HTMLAnchorElement>,
-    ): void => {
+    const handleNavigateOnClick = (path: string): void => {
         setOpen(false)
-        e.currentTarget.textContent === NAMES.home
-            ? nav(PATHES.home)
-            : nav(PATHES.settings)
+        handleNavigate(path, nav)
+    }
+
+    const handleChangeOpenState = () => {
+        setOpen((prevState) => !prevState)
     }
 
     return (
         <div>
-            <BurgerMenuContainer open={open} onClick={() => setOpen(!open)}>
+            <BurgerMenuContainer open={open} onClick={handleChangeOpenState}>
                 <div className="line line1" />
                 <div className="line line2" />
                 <div className="line line3" />
@@ -34,16 +35,18 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({ open, setOpen, active }) => {
             {open && (
                 <MenuContainer>
                     <StyledLink
-                        $active={active === PATHES.home}
-                        onClick={handleNavigateOnClick}
+                        $active={active === PATHES.home.path}
+                        onClick={() => handleNavigateOnClick(PATHES.home.path)}
                     >
-                        {NAMES.home}
+                        {PATHES.home.name}
                     </StyledLink>
                     <StyledLink
-                        $active={active === PATHES.settings}
-                        onClick={handleNavigateOnClick}
+                        $active={active === PATHES.settings.path}
+                        onClick={() =>
+                            handleNavigateOnClick(PATHES.settings.path)
+                        }
                     >
-                        {NAMES.settings}
+                        {PATHES.settings.name}
                     </StyledLink>
                 </MenuContainer>
             )}

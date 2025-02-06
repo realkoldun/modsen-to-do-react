@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import BurgerMenu from '@/components/BurgerMenu'
-import { NAMES, PATHES } from '@/constants/textConstants'
+import { PATHES } from '@/constants/textConstants'
+import handleNavigate from '@/utils/handleNavigate'
 
 import * as S from './styled'
 
@@ -11,12 +12,8 @@ export default function Header() {
     const activeLink = useLocation().pathname
     const nav = useNavigate()
 
-    const handleNavigateOnClick = (
-        e: React.MouseEvent<HTMLAnchorElement>,
-    ): void => {
-        e.currentTarget.textContent === NAMES.home
-            ? nav(PATHES.home)
-            : nav(PATHES.settings)
+    const handleNavigateOnClick = (path: string) => {
+        handleNavigate(path, nav)
     }
 
     return (
@@ -25,16 +22,18 @@ export default function Header() {
                 <h1>Modsen Todo List</h1>
                 <S.StyledLinks>
                     <S.StyledLink
-                        $active={activeLink === PATHES.home}
-                        onClick={handleNavigateOnClick}
+                        $active={activeLink === PATHES.home.path}
+                        onClick={() => handleNavigateOnClick(PATHES.home.path)}
                     >
-                        {NAMES.home}
+                        {PATHES.home.name}
                     </S.StyledLink>
                     <S.StyledLink
-                        $active={activeLink === PATHES.settings}
-                        onClick={handleNavigateOnClick}
+                        $active={activeLink === PATHES.settings.path}
+                        onClick={() =>
+                            handleNavigateOnClick(PATHES.settings.path)
+                        }
                     >
-                        {NAMES.settings}
+                        {PATHES.settings.name}
                     </S.StyledLink>
                 </S.StyledLinks>
                 <S.StyledBurgerMenu>

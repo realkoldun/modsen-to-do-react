@@ -1,29 +1,33 @@
 import React from 'react'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 
 import Header from '@/components/Header/index'
 import { PATHES } from '@/constants/textConstants'
-import Theme from '@/Theme'
+import { theme } from '@/constants/theme'
 
 import { GlobalStyle } from './GlobalStyle'
 
 function App() {
     return (
         <>
-            <Theme>
+            <ThemeProvider theme={theme}>
                 <GlobalStyle />
                 <Router>
                     <Header />
                     <Routes>
-                        <Route path={PATHES.home} element={<div>Home</div>} />
                         <Route
-                            path={PATHES.settings}
+                            path={PATHES.home.path}
+                            element={<div>Home</div>}
+                        />
+                        <Route
+                            path={PATHES.settings.path}
                             element={<div>Settings</div>}
                         />
                         <Route path="*" element={<div>Not Found</div>} />
                     </Routes>
                 </Router>
-            </Theme>
+            </ThemeProvider>
         </>
     )
 }
