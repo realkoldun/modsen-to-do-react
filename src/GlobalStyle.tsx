@@ -1,3 +1,5 @@
+import '@/assets/font/Jost.ttf'
+
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
