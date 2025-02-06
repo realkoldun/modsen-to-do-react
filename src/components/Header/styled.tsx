@@ -48,7 +48,7 @@ export const StyledLink = styled.a<{ $active: boolean }>`
     margin-left: ${({ theme }) => theme.margin.l};
     cursor: pointer;
 
-    ${({ $active, theme }) =>
+    ${({ $active }) =>
         $active &&
         `
     text-decoration: underline;
