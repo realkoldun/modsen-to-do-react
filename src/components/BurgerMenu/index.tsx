@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { StyledLink } from '@/components/Header/styled'
 import { PATHES } from '@/constants/textConstants'
-import handleNavigate from '@/utils/handleNavigate'
 
 import { BurgerMenuContainer, MenuContainer } from './styled'
 
@@ -20,9 +19,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
 }) => {
     const nav = useNavigate()
 
-    const handleNavigateOnClick = (path: string): void => {
+    const handleNavigateOnClick = (path: string) => () => {
         setOpen(false)
-        handleNavigate(path, nav)
+        nav(path)
     }
 
     const handleChangeOpenState = () => {
