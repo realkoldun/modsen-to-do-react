@@ -39,15 +39,13 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
                 <MenuContainer>
                     <StyledLink
                         $active={activePath === PATHES.home.path}
-                        onClick={() => handleNavigateOnClick(PATHES.home.path)}
+                        onClick={handleNavigateOnClick(PATHES.home.path)}
                     >
                         {PATHES.home.name}
                     </StyledLink>
                     <StyledLink
                         $active={activePath === PATHES.settings.path}
-                        onClick={() =>
-                            handleNavigateOnClick(PATHES.settings.path)
-                        }
+                        onClick={handleNavigateOnClick(PATHES.settings.path)}
                     >
                         {PATHES.settings.name}
                     </StyledLink>
