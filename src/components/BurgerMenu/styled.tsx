@@ -13,7 +13,10 @@ export const BurgerMenuContainer = styled.div<BurgerMenuContainerProps>`
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 10;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
 
     .line {
         width: 2rem;
@@ -42,18 +45,26 @@ export const BurgerMenuContainer = styled.div<BurgerMenuContainerProps>`
 export const MenuContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-items: center;
+    align-items: flex-start;
+    justify-content: normal;
+    font-size: ${({ theme }) => theme.font.m};
+    padding-top: ${({ theme }) => theme.padding.m};
     background-color: ${({ theme }) => theme.colors.indigo};
-    position: absolute;
-    top: 4rem;
-    right: 1rem;
-    border-radius: ${({ theme }) => theme.sizes.xs};
-    box-shadow: 0 0 ${({ theme }) => theme.sizes.xs}
-        ${({ theme }) => theme.colors.darkGray};
-    padding: ${({ theme }) => theme.padding.s};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 10;
+
+    &.open {
+        transform: translateY(0);
+    }
 
     a {
         color: ${({ theme }) => theme.colors.white};
         padding: ${({ theme }) => theme.padding.s};
+    }
 `

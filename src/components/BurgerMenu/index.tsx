@@ -35,22 +35,20 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
                 <div className="line line2" />
                 <div className="line line3" />
             </BurgerMenuContainer>
-            {open && (
-                <MenuContainer>
-                    <StyledLink
-                        $active={activePath === PATHES.home.path}
-                        onClick={handleNavigateOnClick(PATHES.home.path)}
-                    >
-                        {PATHES.home.name}
-                    </StyledLink>
-                    <StyledLink
-                        $active={activePath === PATHES.settings.path}
-                        onClick={handleNavigateOnClick(PATHES.settings.path)}
-                    >
-                        {PATHES.settings.name}
-                    </StyledLink>
-                </MenuContainer>
-            )}
+            <MenuContainer className={open ? 'open' : ''}>
+                <StyledLink
+                    $active={activePath === PATHES.home.path}
+                    onClick={handleNavigateOnClick(PATHES.home.path)}
+                >
+                    {PATHES.home.name}
+                </StyledLink>
+                <StyledLink
+                    $active={activePath === PATHES.settings.path}
+                    onClick={handleNavigateOnClick(PATHES.settings.path)}
+                >
+                    {PATHES.settings.name}
+                </StyledLink>
+            </MenuContainer>
         </div>
     )
 }
