@@ -15,9 +15,9 @@ export default function Header() {
 
     return (
         <S.StyledHeader>
-            <S.StyledHeaderText>
+            <S.StyledHeaderTextContainer>
                 <h1>Modsen Todo List</h1>
-                <S.StyledLinks>
+                <S.StyledLinksContainer>
                     <S.StyledLink
                         $active={activeLink === PATHES.home.path}
                         onClick={handleNavigateOnClick(PATHES.home.path)}
@@ -30,7 +30,7 @@ export default function Header() {
                     >
                         {PATHES.settings.name}
                     </S.StyledLink>
-                </S.StyledLinks>
+                </S.StyledLinksContainer>
                 <S.StyledBurgerMenu>
                     <BurgerMenu
                         open={open}
@@ -38,7 +38,7 @@ export default function Header() {
                         activePath={activeLink}
                     />
                 </S.StyledBurgerMenu>
-            </S.StyledHeaderText>
+            </S.StyledHeaderTextContainer>
         </S.StyledHeader>
     )
 }

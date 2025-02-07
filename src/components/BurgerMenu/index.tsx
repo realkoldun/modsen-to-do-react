@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { StyledLink } from '@/components/Header/styled'
 import { PATHES } from '@/constants/textConstants'
 
-import { BurgerMenuContainer, MenuContainer } from './styled'
+import { BurgerMenuContainer, MenuContainer, StyledBurgerLine } from './styled'
 
 interface BurgerMenuProps {
     open: boolean
@@ -30,12 +30,12 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
 
     return (
         <div>
-            <BurgerMenuContainer open={open} onClick={handleChangeOpenState}>
-                <div className="line line1" />
-                <div className="line line2" />
-                <div className="line line3" />
+            <BurgerMenuContainer onClick={handleChangeOpenState}>
+                <StyledBurgerLine open={open} className="line line1" />
+                <StyledBurgerLine open={open} className="line line2" />
+                <StyledBurgerLine open={open} className="line line3" />
             </BurgerMenuContainer>
-            <MenuContainer className={open ? 'open' : ''}>
+            <MenuContainer open={open}>
                 <StyledLink
                     $active={activePath === PATHES.home.path}
                     onClick={handleNavigateOnClick(PATHES.home.path)}

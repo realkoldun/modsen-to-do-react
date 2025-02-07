@@ -1,58 +1,60 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
-    width: ${({ theme }) => theme.sizes.full};
-    background-color: ${({ theme }) => theme.colors.indigo};
-    padding: ${({ theme }) => theme.padding.s} ${({ theme }) => theme.padding.l};
     box-sizing: border-box;
-    font-size: ${({ theme }) => theme.font.m};
-    @media only screen and (min-width: ${({ theme }) =>
-            theme.screenWidth.wide}) {
-        font-size: ${({ theme }) => theme.font.xxxl};
-    }
-    @media only screen and (max-width: ${({ theme }) =>
-            theme.screenWidth.small}) {
-        font-size: ${({ theme }) => theme.font.xs};
-    }
-    @media only screen and (max-width: ${({ theme }) =>
-            theme.screenWidth.mobile}) {
-        font-size: ${({ theme }) => theme.font.xxs};
-    }
+    ${({ theme }) => css`
+        width: ${theme.sizes.full};
+        background-color: ${theme.colors.indigo};
+        padding: ${theme.padding.s} ${theme.padding.l};
+        font-size: ${theme.font.m};
+        @media only screen and (min-width: ${theme.screenWidth.wide}) {
+            font-size: ${theme.font.xxxl};
+        }
+        @media only screen and (max-width: ${theme.screenWidth.small}) {
+            font-size: ${theme.font.xs};
+        }
+        @media only screen and (max-width: ${theme.screenWidth.mobile}) {
+            font-size: ${theme.font.xxs};
+        }
+    `}
 `
 
-export const StyledHeaderText = styled.div`
-    width: ${({ theme }) => theme.sizes.full};
-    max-width: ${({ theme }) => theme.sizes.max};
+export const StyledHeaderTextContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: ${({ theme }) => theme.colors.white};
-    max-height: ${({ theme }) => theme.sizes.l};
     box-sizing: border-box;
+    ${({ theme }) => css`
+        width: ${theme.sizes.full};
+        max-width: ${theme.sizes.max};
+
+        color: ${theme.colors.white};
+        max-height: ${theme.sizes.l};
+    `}
 `
 
-export const StyledLinks = styled.nav`
+export const StyledLinksContainer = styled.nav`
     display: flex;
     align-items: center;
 
-    @media only screen and (max-width: 460px) {
+    @media only screen and (max-width: ${({ theme }) =>
+            theme.screenWidth.mobile}) {
         display: none;
     }
 `
 
 export const StyledLink = styled.a<{ $active: boolean }>`
-    color: ${({ theme }) => theme.colors.white};
     text-decoration: none;
-    margin-left: ${({ theme }) => theme.margin.l};
     cursor: pointer;
+    ${({ theme }) => css`
+        color: ${theme.colors.white};
 
-    ${({ $active }) =>
-        $active &&
-        `
-    text-decoration: underline;
-  `}
+        margin-left: ${theme.margin.l};
+    `}
+
+    ${({ $active }) => $active && ` text-decoration: underline; `}
 `
 
 export const StyledBurgerMenu = styled.div`
