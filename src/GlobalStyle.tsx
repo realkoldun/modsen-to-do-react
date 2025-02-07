@@ -51,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
         @media only screen and (max-width: ${theme.screenWidth.small}) {
             margin-top: ${theme.margin.m};
             margin-left: 0;
-            font-size: ${theme.font.xxs};
+            font-size: ${theme.font.xs};
             width: ${theme.sizes.full};
         }
 

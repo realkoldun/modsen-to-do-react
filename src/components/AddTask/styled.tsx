@@ -38,7 +38,10 @@ export const StyledDisplay = styled.input`
         border-bottom: ${theme.sizes.xxs} solid ${theme.colors.indigo};
 
         @media only screen and (min-width: ${theme.screenWidth.wide}) {
-            font-size: ${theme.font.xxl};
+            font-size: ${theme.font.l};
+        }
+        @media only screen and (max-width: ${theme.screenWidth.small}) {
+            font-size: ${theme.font.s};
         }
 
         :focus {
@@ -53,12 +56,15 @@ export const StyledLabel = styled.label`
     flex-direction: column;
     justify-content: left;
     ${({ theme }) => css`
+        font-size: ${theme.font.l};
         width: ${theme.sizes.full};
         padding-top: ${theme.padding.s};
-        font-size: ${theme.font.l};
 
-        @media only screen and (min-width: ${theme.screenWidth.wide}) {
-            font-size: ${theme.font.xxl};
+        /@media only screen and (min-width: ${theme.screenWidth.wide}) {
+            font-size: ${theme.font.xl};
+        }
+        @media only screen and (max-width: ${theme.screenWidth.small}) {
+            font-size: ${theme.font.m};
         }
     `}
 `
