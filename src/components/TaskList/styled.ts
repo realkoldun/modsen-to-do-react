@@ -21,7 +21,7 @@ export const StyledTasksContainer = styled.div`
             max-height: ${theme.sizes.xxxl};
         }
         @media only screen and (max-width: ${theme.screenWidth.mobile}) {
-            max-height: ${theme.sizes.l};
+            max-height: 300px;
         }
     `}
 `
