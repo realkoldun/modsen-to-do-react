@@ -31,9 +31,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     return (
         <div>
             <BurgerMenuContainer onClick={handleChangeOpenState}>
-                <StyledBurgerLine open={open} className="line line1" />
-                <StyledBurgerLine open={open} className="line line2" />
-                <StyledBurgerLine open={open} className="line line3" />
+                <StyledBurgerLine open={open} />
+                <StyledBurgerLine open={open} />
+                <StyledBurgerLine open={open} />
             </BurgerMenuContainer>
             <MenuContainer open={open}>
                 <StyledLink
