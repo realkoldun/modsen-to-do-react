@@ -1,6 +1,6 @@
 import '@/assets/font/Jost.ttf'
 
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -14,54 +14,61 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-items: center;
-    height: ${({ theme }) => theme.sizes.full};
-    margin: 0;
-    font-family: "Jost", sans-serif;
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.black};
-    border-color: ${({ theme }) => theme.colors.white};
+    ${({ theme }) => css`
+        height: ${theme.sizes.full};
+        margin: 0;
+        font-family: 'Jost', sans-serif;
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.black};
+        border-color: ${theme.colors.white};
+    `}
   }
 
   .main-container {
-    width: ${({ theme }) => theme.sizes.full};
     display: flex;
     align-items: center;
     flex-direction: column;
+    ${({ theme }) => css`
+        width: ${theme.sizes.full};
+    `}
   }
 
   button {
     font-family: 'Jost', sans-serif;
-    font-size: ${({ theme }) => theme.font.m};
-    min-height: ${({ theme }) => theme.sizes.xxxs};
-    min-width: ${({ theme }) => theme.sizes.s};
-    color: ${({ theme }) => theme.colors.white};
-    border-radius: ${({ theme }) => theme.sizes.xs};
-    margin-left: ${({ theme }) => theme.margin.l};
     cursor: pointer;
+    ${({ theme }) => css`
+        font-size: ${theme.font.m};
+        min-height: ${theme.sizes.xxxs};
+        min-width: ${theme.sizes.s};
+        color: ${theme.colors.white};
+        border-radius: ${theme.sizes.xs};
+        margin-left: ${theme.margin.l};
+        @media only screen and (min-width: ${theme.screenWidth.wide}) {
+            font-size: ${theme.font.xl};
+            min-height: ${theme.sizes.xxxs};
+        }
 
-    @media only screen and (min-width: ${({ theme }) => theme.screenWidth.wide}) {
-      font-size: ${({ theme }) => theme.font.xl};
-      min-height: ${({ theme }) => theme.sizes.xxxs};
-    }
+        @media only screen and (max-width: ${theme.screenWidth.small}) {
+            font-size: ${theme.font.xxs};
+            width: ${theme.sizes.xs};
+        }
 
-    @media only screen and (max-width: ${({ theme }) => theme.screenWidth.small}) {
-      font-size: ${({ theme }) => theme.font.xxs};
-      width: ${({ theme }) => theme.sizes.xs};
-    }
-
-    @media only screen and (max-width: ${({ theme }) => theme.screenWidth.mobile}) {
-      margin-left: 0;
-      margin-top: ${({ theme }) => theme.margin.l};
-      min-width: ${({ theme }) => theme.sizes.full};
-    }
+        @media only screen and (max-width: ${theme.screenWidth.mobile}) {
+            margin-left: 0;
+            margin-top: ${theme.margin.l};
+            min-width: ${theme.sizes.full};
+        }
+    `}
   }
 
   section {
     display: flex;
     justify-items: center;
     align-items: center;
-    width: ${({ theme }) => theme.sizes.xxl};
-    max-width: ${({ theme }) => theme.sizes.xxxl};
+    ${({ theme }) => css`
+        width: ${theme.sizes.xxl};
+        max-width: ${theme.sizes.xxxl};
+    `}
     box-sizing: border-box;
   }
 `
