@@ -15,8 +15,10 @@ interface TaskInterface {
 
 export default function TaskComponent(props: TaskInterface) {
     const { id, name, isChecked } = props
-    const { deleteTaskById, checkTaskById } = useContext(TaskStorage)
+    const { deleteTaskById, checkTaskById, setEditingTaskId } =
+        useContext(TaskStorage)
     const [task, setTask] = useState({ name, isChecked })
+
     const handleCheckboxChange = () => {
         setTask((prevTask) => ({
             ...prevTask,
@@ -24,7 +26,10 @@ export default function TaskComponent(props: TaskInterface) {
         }))
         checkTaskById(id)
     }
+
     const handleDeleteById = () => deleteTaskById(id)
+
+    const handleEditTask = () => setEditingTaskId(id)
 
     return (
         <S.StyledSection>
@@ -40,7 +45,7 @@ export default function TaskComponent(props: TaskInterface) {
                 <S.StyledIconButton onClick={handleDeleteById}>
                     <S.StyledImg src={DELETE_ICON} alt="delete" />
                 </S.StyledIconButton>
-                <S.StyledIconButton>
+                <S.StyledIconButton onClick={handleEditTask}>
                     <S.StyledImg src={RENAME_ICON} alt="delete" />
                 </S.StyledIconButton>
             </S.StyledIconContainer>

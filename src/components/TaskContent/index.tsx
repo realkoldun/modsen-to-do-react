@@ -9,7 +9,10 @@ interface TaskStorageContextType {
     deleteTaskById: (id: string) => void
     deleteSelectedTasks: () => void
     checkTaskById: (id: string) => void
-    editTaskById: (id: string, name: string) => void
+    editTaskById: (name: string) => void
+    setEditingTaskId: (id: string) => void
+    editingTaskId: string
+    getTaskById: (id: string) => TaskInterface
 }
 
 export const TaskStorage = createContext<TaskStorageContextType | undefined>(
@@ -20,6 +23,8 @@ export default function TasksProvider({ children }: React.PropsWithChildren) {
     const [tasks, setTasks] = useState<TaskInterface[]>(
         JSON.parse(localStorage.getItem('tasks')) || [],
     )
+
+    const [editingTaskId, setEditingTaskId] = useState<string>(null)
 
     const updateLocalStorage = (newTasks: TaskInterface[]) => {
         setTasks(newTasks)
@@ -36,6 +41,10 @@ export default function TasksProvider({ children }: React.PropsWithChildren) {
             ...tasks,
         ]
         updateLocalStorage(newTasks)
+    }
+
+    const getTaskById = (taskId: string) => {
+        return tasks.find((task) => task.id === taskId)
     }
 
     const deleteTaskById = (taskId: string) => {
@@ -58,12 +67,13 @@ export default function TasksProvider({ children }: React.PropsWithChildren) {
         updateLocalStorage(newTasks)
     }
 
-    const editTaskById = (taskId: string, newTaskName: string) => {
+    const editTaskById = (newTaskName: string) => {
         const newTasks = tasks.map((task) => {
-            if (task.id === taskId) return { ...task, newTaskName }
+            if (task.id === editingTaskId) return { ...task, name: newTaskName }
             else return task
         })
         updateLocalStorage(newTasks)
+        setEditingTaskId(null)
     }
 
     return (
@@ -75,6 +85,9 @@ export default function TasksProvider({ children }: React.PropsWithChildren) {
                 deleteSelectedTasks,
                 checkTaskById,
                 editTaskById,
+                setEditingTaskId,
+                editingTaskId,
+                getTaskById,
             }}
         >
             {children}
