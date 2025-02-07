@@ -15,7 +15,7 @@ export default function AddTask() {
                     value={taskName}
                     placeholder="input your task"
                     onInput={handleInput}
-                ></S.StyledDisplay>
+                />
             </S.StyledLabel>
             <S.StyledAddButton type="button">{'Add todo'}</S.StyledAddButton>
         </S.StyledSection>
