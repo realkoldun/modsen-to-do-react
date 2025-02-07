@@ -29,7 +29,13 @@ export default function TaskComponent(props: TaskInterface) {
 
     const handleDeleteById = () => deleteTaskById(id)
 
-    const handleEditTask = () => setEditingTaskId(id)
+    const handleEditTask = () => {
+        setEditingTaskId(id)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
 
     return (
         <S.StyledSection>

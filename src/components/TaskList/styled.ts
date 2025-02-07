@@ -20,6 +20,9 @@ export const StyledTasksContainer = styled.div`
         @media only screen and (min-width: ${theme.screenWidth.wide}) {
             max-height: ${theme.sizes.xxxl};
         }
+        @media only screen and (min-width: ${theme.screenWidth.mobile}) {
+            max-height: ${theme.sizes.l};
+        }
     `}
 `
 
