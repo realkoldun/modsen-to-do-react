@@ -49,8 +49,10 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         @media only screen and (max-width: ${theme.screenWidth.small}) {
+            margin-top: ${theme.margin.m};
+            margin-left: 0;
             font-size: ${theme.font.xxs};
-            width: ${theme.sizes.xs};
+            width: ${theme.sizes.full};
         }
 
         @media only screen and (max-width: ${theme.screenWidth.mobile}) {
