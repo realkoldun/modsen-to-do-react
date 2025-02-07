@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import Header from '@/components/Header/index'
 import { PATHES } from '@/constants/textConstants'
 import { theme } from '@/constants/theme'
+import HomePage from '@/pages/HomePage'
 
 import { GlobalStyle } from './GlobalStyle'
 
@@ -16,10 +17,7 @@ function App() {
                 <Router>
                     <Header />
                     <Routes>
-                        <Route
-                            path={PATHES.home.path}
-                            element={<div>Home</div>}
-                        />
+                        <Route path={PATHES.home.path} element={<HomePage />} />
                         <Route
                             path={PATHES.settings.path}
                             element={<div>Settings</div>}

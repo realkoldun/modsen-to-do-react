@@ -8,13 +8,13 @@ export const BurgerMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     background: transparent;
     border: none;
     cursor: pointer;
     position: fixed;
-    top: 1rem;
+    top: 1.5rem;
     right: 1rem;
     z-index: 20;
 `
