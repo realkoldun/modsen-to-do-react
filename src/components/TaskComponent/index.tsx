@@ -1,8 +1,8 @@
+import { TaskStorage } from 'components/TaskContext'
 import React, { useContext, useState } from 'react'
 
 import DELETE_ICON from '@/assets/icons/delete_icon.png'
 import RENAME_ICON from '@/assets/icons/rename_icon.png'
-import { TaskStorage } from '@/components/TaskContent'
 
 import * as S from './styled'
 
