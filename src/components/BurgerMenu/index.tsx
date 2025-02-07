@@ -29,7 +29,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
     }
 
     return (
-        <div>
+        <>
             <S.BurgerMenuContainer onClick={handleChangeOpenState}>
                 <S.StyledBurgerLine open={open} />
                 <S.StyledBurgerLine open={open} />
@@ -49,7 +49,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
                     {PATHES.settings.name}
                 </StyledLink>
             </S.MenuContainer>
-        </div>
+        </>
     )
 }
 
