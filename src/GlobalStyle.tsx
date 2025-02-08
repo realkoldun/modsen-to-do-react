@@ -18,9 +18,9 @@ export const GlobalStyle = createGlobalStyle`
         height: ${theme.sizes.full};
         margin: 0;
         font-family: 'Jost', sans-serif;
-        background-color: ${theme.colors.white};
-        color: ${theme.colors.black};
-        border-color: ${theme.colors.white};
+        background-color: ${theme.mainBackground};
+        color: ${theme.fontColor};
+        border-color: ${theme.mainBackground};
     `}
   }
 
@@ -40,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: ${theme.font.m};
         min-height: ${theme.sizes.xxxs};
         min-width: ${theme.sizes.s};
-        color: ${theme.colors.white};
+        color: ${theme.mainBackground};
         border-radius: ${theme.sizes.xs};
         margin-left: ${theme.margin.l};
         @media only screen and (min-width: ${theme.screenWidth.wide}) {

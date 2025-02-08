@@ -23,7 +23,7 @@ export const StyledBurgerLine = styled.div<BurgerMenuContainerProps>`
     width: 2rem;
     height: 0.25rem;
     ${({ theme }) => css`
-        background: ${theme.colors.white};
+        background: ${theme.headerFontColor};
         border-radius: ${theme.sizes.xs};
     `}
     transition: all 0.5s ease-in-out;
@@ -51,7 +51,7 @@ export const MenuContainer = styled.div<BurgerMenuContainerProps>`
     ${({ theme }) => css`
         font-size: ${theme.font.m};
         padding-top: ${theme.padding.m};
-        background-color: ${theme.colors.indigo};
+        background-color: ${theme.headerBackground};
     `}
     position: fixed;
     top: 0;

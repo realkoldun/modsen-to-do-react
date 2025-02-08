@@ -6,9 +6,10 @@ export const StyledHeader = styled.header`
     box-sizing: border-box;
     ${({ theme }) => css`
         width: ${theme.sizes.full};
-        background-color: ${theme.colors.indigo};
+        background-color: ${theme.headerBackground};
         padding: ${theme.padding.s} ${theme.padding.l};
         font-size: ${theme.font.m};
+        color: ${theme.headerFontColor};
         @media only screen and (min-width: ${theme.screenWidth.wide}) {
             font-size: ${theme.font.xxxl};
         }
@@ -30,7 +31,6 @@ export const StyledHeaderTextContainer = styled.div`
         width: ${theme.sizes.full};
         max-width: ${theme.sizes.max};
 
-        color: ${theme.colors.white};
         max-height: ${theme.sizes.l};
     `}
 `
@@ -49,8 +49,6 @@ export const StyledLink = styled.a<{ $active: boolean }>`
     text-decoration: none;
     cursor: pointer;
     ${({ theme }) => css`
-        color: ${theme.colors.white};
-
         margin-left: ${theme.margin.l};
     `}
 

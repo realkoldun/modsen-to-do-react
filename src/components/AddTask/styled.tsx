@@ -20,7 +20,7 @@ export const StyledSection = styled.section`
 
 export const StyledLegend = styled.legend`
     ${({ theme }) => css`
-        color: ${theme.colors.indigo};
+        color: ${theme.fontColor};
     `}
 `
 
@@ -35,7 +35,7 @@ export const StyledDisplay = styled.input`
         font-size: ${theme.font.m};
         min-height: ${theme.sizes.xs};
 
-        border-bottom: ${theme.sizes.xxs} solid ${theme.colors.indigo};
+        border-bottom: ${theme.sizes.xxs} solid ${theme.headerBackground};
 
         @media only screen and (min-width: ${theme.screenWidth.wide}) {
             font-size: ${theme.font.l};
@@ -45,7 +45,7 @@ export const StyledDisplay = styled.input`
         }
 
         :focus {
-            border-bottom: ${theme.sizes.xxs} solid ${theme.colors.indigo};
+            border-bottom: ${theme.sizes.xxs} solid ${theme.headerBackground};
             outline: none;
         }
     `}
@@ -71,6 +71,6 @@ export const StyledLabel = styled.label`
 
 export const StyledAddButton = styled.button`
     ${({ theme }) => css`
-        background-color: ${theme.colors.indigo};
+        background-color: ${theme.headerBackground};
     `}
 `
