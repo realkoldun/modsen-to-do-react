@@ -2,7 +2,7 @@ import { TaskStorage } from 'components/TaskContext'
 import React, { useContext, useState } from 'react'
 
 import DELETE_ICON from '@/assets/icons/delete_icon.png'
-import RENAME_ICON from '@/assets/icons/rename_icon.png'
+import EDIT_ICON from '@/assets/icons/edit_icon.png'
 
 import * as S from './styled'
 
@@ -52,7 +52,7 @@ export default function TaskComponent(props: TaskInterface) {
                     <S.StyledImg src={DELETE_ICON} alt="delete" />
                 </S.StyledIconButton>
                 <S.StyledIconButton onClick={handleEditTask}>
-                    <S.StyledImg src={RENAME_ICON} alt="delete" />
+                    <S.StyledImg src={EDIT_ICON} alt="edit" />
                 </S.StyledIconButton>
             </S.StyledIconContainer>
         </S.StyledSection>
