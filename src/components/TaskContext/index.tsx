@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import React, { createContext, useState } from 'react'
 
-import TaskInterface from '@/components/utils/TaskInterface'
+import TaskInterface from '@/utils/TaskInterface'
 
 interface TaskStorageContextType {
     tasks: TaskInterface[]

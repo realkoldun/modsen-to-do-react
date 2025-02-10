@@ -42,6 +42,7 @@ export const StyledTaskName = styled.p`
     ${({ theme }) => css`
         width: ${theme.sizes.full};
         font-size: ${theme.font.s};
+        color: ${theme.fontColor};
 
         @media only screen and (min-width: ${theme.screenWidth.wide}) {
             font-size: ${theme.font.l};
