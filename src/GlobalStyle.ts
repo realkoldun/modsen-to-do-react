@@ -1,14 +1,16 @@
-import '@/assets/font/Jost.ttf'
+import '@/assets/font/Jost.woff2'
 
 import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Jost";
-    src: url("./assets/font/Jost.ttf") format("truetype");
+    src: local("Jost"), url("./assets/font/Jost.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
+    font-display: fallback;
   }
+
 
   body {
     display: flex;
