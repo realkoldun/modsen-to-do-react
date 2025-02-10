@@ -3,13 +3,13 @@ import '@/assets/font/Jost.woff2'
 import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
+/*  @font-face {
     font-family: "Jost";
     src: local("Jost"), url("./assets/font/Jost.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: fallback;
-  }
+  }*/
 
 
   body {
