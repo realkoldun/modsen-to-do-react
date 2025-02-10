@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import * as S from '@/components/ThemeChanger/styled'
 import { ThemeStorage } from '@/components/ThemeContext'
-import { THEMES } from '@/constants/textConstants'
+import { ThemeConstants } from '@/constants/themeConstants'
 
 export default function ThemeChanger() {
     const { currentTheme, changeTheme } = useContext(ThemeStorage)
@@ -17,8 +17,12 @@ export default function ThemeChanger() {
             <S.StyledHeaderSwitchTheme>Switch Theme</S.StyledHeaderSwitchTheme>
             <S.StyledSection>
                 <S.StyledSelect value={currentTheme} onChange={handleOnChange}>
-                    <option value={THEMES.light}>{THEMES.light}</option>
-                    <option value={THEMES.dark}>{THEMES.dark}</option>
+                    <option value={ThemeConstants.light}>
+                        {ThemeConstants.light}
+                    </option>
+                    <option value={ThemeConstants.dark}>
+                        {ThemeConstants.dark}
+                    </option>
                 </S.StyledSelect>
             </S.StyledSection>
         </S.StyledSwitchThemeContainer>

@@ -1,8 +1,13 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, {
+    createContext,
+    PropsWithChildren,
+    useEffect,
+    useState,
+} from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { THEMES } from '@/constants/textConstants'
 import { darkTheme, lightTheme } from '@/constants/theme'
+import { ThemeConstants } from '@/constants/themeConstants'
 
 type ThemeType = typeof lightTheme | typeof darkTheme
 
@@ -11,13 +16,13 @@ interface ThemeStorageContextType {
     changeTheme: (theme: string) => void
 }
 
-export const ThemeStorage = createContext<ThemeStorageContextType | undefined>(
-    undefined,
-)
+export const ThemeStorage = createContext<ThemeStorageContextType>(null)
 
-export default function ThemeContext({ children }: React.PropsWithChildren) {
+export default function ThemeContext({ children }: PropsWithChildren) {
     const [theme, setTheme] = useState<ThemeType>(lightTheme)
-    const [currentTheme, setCurrentTheme] = useState<string>(THEMES.light)
+    const [currentTheme, setCurrentTheme] = useState<string>(
+        ThemeConstants.light,
+    )
 
     useEffect(() => {
         const storedTheme = localStorage.getItem('theme')
@@ -28,13 +33,13 @@ export default function ThemeContext({ children }: React.PropsWithChildren) {
 
     const changeTheme = (newTheme: string): void => {
         switch (newTheme) {
-            case THEMES.dark:
+            case ThemeConstants.dark:
                 setTheme(darkTheme)
-                localStorage.setItem('theme', THEMES.dark)
+                localStorage.setItem('theme', ThemeConstants.dark)
                 break
-            case THEMES.light:
+            case ThemeConstants.light:
                 setTheme(lightTheme)
-                localStorage.setItem('theme', THEMES.light)
+                localStorage.setItem('theme', ThemeConstants.light)
                 break
             default:
                 break

@@ -1,4 +1,4 @@
-export const PATHES = {
+export const PathesConstants = {
     home: {
         name: 'Home',
         path: '/',
@@ -7,9 +7,4 @@ export const PATHES = {
         name: 'Settings',
         path: '/settings',
     },
-}
-
-export const THEMES = {
-    light: 'Light theme',
-    dark: 'Dark theme',
 }
