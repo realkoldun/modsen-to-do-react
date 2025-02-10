@@ -1,11 +1,16 @@
+import TasksProvider from 'components/TaskContext'
 import React from 'react'
 
 import AddTask from '@/components/AddTask/index'
+import TaskList from '@/components/TaskList'
 
 export default function HomePage() {
     return (
         <>
-            <AddTask />
+            <TasksProvider>
+                <AddTask />
+                <TaskList />
+            </TasksProvider>
         </>
     )
 }
