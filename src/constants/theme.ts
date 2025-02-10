@@ -12,15 +12,7 @@ const COLORS = {
 
 const basicTheme = {
     colors: {
-        white: '#ffffff',
-        black: '#000000',
-        darkGray: '#333333',
-        veryDarkGray: '#282828',
-        paleGray: '#d0d0d0',
-        veryLightGray: '#e0e0e0',
-        lightGray: '#cccccc',
-        indigo: '#3e50b5',
-        pinkie: '#ff4081',
+        pinkie: COLORS.pinkie,
     },
     sizes: {
         full: '100%',
