@@ -1,8 +1,10 @@
+import axios from 'axios'
 import React, { createContext, useState } from 'react'
 
 interface GithubStorageContextType {
     username: string
     imageLink: string
+    error: string
     findUser: (username: string) => void
 }
 
@@ -10,17 +12,37 @@ export const GithubStorage = createContext<
     GithubStorageContextType | undefined
 >(undefined)
 
+const GITHUB_SEARCH_API_URL = 'https://api.github.com/users/'
+
 export default function GithubContext({ children }: React.PropsWithChildren) {
     const [username, setUsername] = useState(null)
     const [imageLink, setImageLink] = useState(null)
+    const [error, setError] = useState(null)
 
     const findUser = (username: string) => {
-        setUsername(username)
-        setImageLink('')
+        axios
+            .get(GITHUB_SEARCH_API_URL + username)
+            .then((response) => {
+                setError('')
+                const { login, avatar_url } = response.data
+                setUsername(login)
+                setImageLink(avatar_url)
+            })
+            .catch((error) => {
+                setUsername('error')
+                setImageLink('')
+                switch (error.name) {
+                    case 'AxiosError':
+                        setError(error.message)
+                        break
+                    default:
+                        setError('Unknown error')
+                }
+            })
     }
 
     return (
-        <GithubStorage value={{ username, imageLink, findUser }}>
+        <GithubStorage value={{ username, imageLink, error, findUser }}>
             {children}
         </GithubStorage>
     )

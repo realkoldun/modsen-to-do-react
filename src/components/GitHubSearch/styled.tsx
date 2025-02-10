@@ -80,3 +80,11 @@ export const StyledImg = styled.img`
         max-height: ${theme.font.xxl};
     `}
 `
+
+export const StyledErrorMessageText = styled.p`
+    ${({ theme }) => css`
+        padding-left: ${theme.padding.s};
+    `}
+
+    color: #ff0000;
+`
