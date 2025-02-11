@@ -20,31 +20,12 @@ export const StyledSection = styled.section`
 
 export const StyledLegend = styled.legend`
     ${({ theme }) => css`
-        font-size: ${theme.font.m};
+        font-size: ${theme.font.s};
         color: ${theme.fontColor};
     `}
 `
 
-export const StyledDisplay = styled.input`
-    ${({ theme }) => css`
-        font-family: 'Jost', sans-serif;
-        font-size: ${theme.font.m};
-        min-height: ${theme.sizes.xs};
-        border: none;
-        border-bottom: ${theme.sizes.xxs} solid ${theme.fontColor};
-        text-align: left;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        @media only screen and (min-width: ${theme.screenWidth.wide}) {
-            font-size: ${theme.font.xxl};
-        }
-        :focus {
-            border-bottom: ${theme.sizes.xxs} solid ${theme.headerBackground};
-            outline: none;
-        }
-    `}
-`
+export const StyledDisplay = styled.input``
 
 export const StyledLabel = styled.label`
     display: flex;
@@ -65,11 +46,15 @@ export const StyledSearchButton = styled.button`
     border: none;
     cursor: pointer;
     ${({ theme }) => css`
+        @media only screen and (max-width: ${theme.screenWidth.small}) {
+            max-height: ${theme.font.xxxl};
+            max-width: ${theme.font.xxxl};
+        }
         max-height: ${theme.font.xxl};
         min-height: ${theme.font.xxl};
         max-width: ${theme.font.xxl};
         min-width: ${theme.font.xxl};
-        padding: 0;
+        padding-right: 20px;
     `}
 `
 
@@ -78,12 +63,4 @@ export const StyledImg = styled.img`
         max-width: ${theme.font.xxl};
         max-height: ${theme.font.xxl};
     `}
-`
-
-export const StyledErrorMessageText = styled.p`
-    ${({ theme }) => css`
-        padding-left: ${theme.padding.s};
-    `}
-
-    color: #ff0000;
 `

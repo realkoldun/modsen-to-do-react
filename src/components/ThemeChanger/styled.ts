@@ -17,21 +17,20 @@ export const StyledHeaderSwitchTheme = styled.h3`
     ${({ theme }) => css`
         display: block;
         margin-bottom: ${theme.margin.m};
-        padding-left: ${theme.padding.s};
     `}
 `
 
 export const StyledSection = styled.section`
     ${({ theme }) => css`
         width: ${theme.sizes.full};
-        padding: ${theme.padding.s};
     `}
 `
 
 export const StyledSelect = styled.select`
     ${({ theme }) => css`
         width: ${theme.sizes.full};
-        padding: ${theme.padding.s};
+        padding-left: ${theme.padding.s};
+        min-height: 40px;
         background-color: ${theme.headerBackground};
         color: ${theme.headerFontColor};
         border-radius: ${theme.font.xxs};

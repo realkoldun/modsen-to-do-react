@@ -7,7 +7,7 @@ export const SettingsPageStyle = styled.div`
     text-align: left;
     box-sizing: border-box;
     ${({ theme }) => css`
-        padding-left: ${theme.padding.m};
+        padding: ${theme.padding.m};
         width: ${theme.sizes.full};
         max-width: ${theme.sizes.max};
     `}
