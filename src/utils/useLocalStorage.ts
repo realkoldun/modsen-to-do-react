@@ -11,8 +11,7 @@ export function useLocalStorage(key: string, initialValue: TaskInterface[]) {
     useEffect(() => {
         const item = JSON.stringify(value)
         window.localStorage.setItem(key, item)
-        // eslint-disable-next-line
-    }, [value])
+    }, [key, value])
 
     return [value, setValue]
 }
