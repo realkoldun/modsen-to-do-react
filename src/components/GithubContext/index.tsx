@@ -22,12 +22,11 @@ export default function GithubContext({ children }: React.PropsWithChildren) {
             .get(GITHUB_SEARCH_API_URL + username)
             .then((response) => {
                 setError('')
-                const { login, avatar_url } = response.data
-                setUsername(login)
-                setImageLink(avatar_url)
+                setUsername(response.data.login)
+                setImageLink(response.data.avatar_url)
             })
             .catch((error) => {
-                setUsername('error')
+                setUsername('')
                 setImageLink('')
                 switch (error.name) {
                     case 'AxiosError':
