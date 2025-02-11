@@ -87,6 +87,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: ${theme.font.m};
         min-height: ${theme.sizes.xs};
         background-color: ${theme.mainBackground};
+        color: ${theme.fontColor};
         border-bottom: ${theme.sizes.xxs} solid ${theme.headerBackground};
 
         @media only screen and (min-width: ${theme.screenWidth.wide}) {
