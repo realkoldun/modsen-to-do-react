@@ -1,9 +1,4 @@
-import React, {
-    createContext,
-    PropsWithChildren,
-    useEffect,
-    useState,
-} from 'react'
+import React, { createContext, PropsWithChildren, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { darkTheme, lightTheme } from '@/constants/theme'
@@ -19,17 +14,14 @@ interface ThemeStorageContextType {
 export const ThemeStorage = createContext<ThemeStorageContextType>(null)
 
 export default function ThemeContext({ children }: PropsWithChildren) {
-    const [theme, setTheme] = useState<ThemeType>(lightTheme)
     const [currentTheme, setCurrentTheme] = useState<string>(
-        ThemeConstants.light,
+        localStorage.getItem('theme')
+            ? localStorage.getItem('theme')
+            : ThemeConstants.light,
     )
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem('theme')
-        if (storedTheme) {
-            changeTheme(storedTheme)
-        }
-    }, [])
+    const [theme, setTheme] = useState<ThemeType>(
+        currentTheme === ThemeConstants.dark ? darkTheme : lightTheme,
+    )
 
     const changeTheme = (newTheme: string): void => {
         switch (newTheme) {
