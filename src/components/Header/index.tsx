@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import BurgerMenu from '@/components/BurgerMenu'
-import { PATHES } from '@/constants/textConstants'
+import { PathesConstants } from '@/constants/pathesConstants'
 
 import * as S from './styled'
 
@@ -19,16 +19,20 @@ export default function Header() {
                 <h1>Modsen Todo List</h1>
                 <S.StyledLinksContainer>
                     <S.StyledLink
-                        $active={activeLink === PATHES.home.path}
-                        onClick={handleNavigateOnClick(PATHES.home.path)}
+                        $active={activeLink === PathesConstants.home.path}
+                        onClick={handleNavigateOnClick(
+                            PathesConstants.home.path,
+                        )}
                     >
-                        {PATHES.home.name}
+                        {PathesConstants.home.name}
                     </S.StyledLink>
                     <S.StyledLink
-                        $active={activeLink === PATHES.settings.path}
-                        onClick={handleNavigateOnClick(PATHES.settings.path)}
+                        $active={activeLink === PathesConstants.settings.path}
+                        onClick={handleNavigateOnClick(
+                            PathesConstants.settings.path,
+                        )}
                     >
-                        {PATHES.settings.name}
+                        {PathesConstants.settings.name}
                     </S.StyledLink>
                 </S.StyledLinksContainer>
                 <S.StyledBurgerMenu>

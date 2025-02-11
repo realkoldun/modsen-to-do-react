@@ -1,13 +1,18 @@
-export const theme = {
+const COLORS = {
+    white: '#ffffff',
+    black: '#000000',
+    darkGray: '#333333',
+    veryDarkGray: '#282828',
+    paleGray: '#d0d0d0',
+    veryLightGray: '#e0e0e0',
+    lightGray: '#cccccc',
+    indigo: '#3e50b5',
+    pinkie: '#ff4081',
+}
+
+const basicTheme = {
     colors: {
-        white: '#ffffff',
-        black: '#000000',
-        darkGray: '#333333',
-        paleGray: '#d0d0d0',
-        veryLightGray: '#e0e0e0',
-        lightGray: '#cccccc',
-        indigo: '#3e50b5',
-        pinkie: '#ff4081',
+        pinkie: COLORS.pinkie,
     },
     sizes: {
         full: '100%',
@@ -54,4 +59,21 @@ export const theme = {
         small: '760px',
         mobile: '460px',
     },
+}
+
+export const lightTheme = {
+    ...basicTheme,
+
+    mainBackground: COLORS.white,
+    headerBackground: COLORS.indigo,
+    fontColor: COLORS.black,
+    headerFontColor: COLORS.white,
+}
+export const darkTheme = {
+    ...basicTheme,
+
+    mainBackground: COLORS.veryDarkGray,
+    headerBackground: COLORS.darkGray,
+    fontColor: COLORS.white,
+    headerFontColor: COLORS.white,
 }

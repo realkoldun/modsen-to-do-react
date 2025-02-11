@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { StyledLink } from '@/components/Header/styled'
-import { PATHES } from '@/constants/textConstants'
+import { PathesConstants } from '@/constants/pathesConstants'
 
 import * as S from './styled'
 
@@ -37,16 +37,18 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
             </S.BurgerMenuContainer>
             <S.MenuContainer open={open}>
                 <StyledLink
-                    $active={activePath === PATHES.home.path}
-                    onClick={handleNavigateOnClick(PATHES.home.path)}
+                    $active={activePath === PathesConstants.home.path}
+                    onClick={handleNavigateOnClick(PathesConstants.home.path)}
                 >
-                    {PATHES.home.name}
+                    {PathesConstants.home.name}
                 </StyledLink>
                 <StyledLink
-                    $active={activePath === PATHES.settings.path}
-                    onClick={handleNavigateOnClick(PATHES.settings.path)}
+                    $active={activePath === PathesConstants.settings.path}
+                    onClick={handleNavigateOnClick(
+                        PathesConstants.settings.path,
+                    )}
                 >
-                    {PATHES.settings.name}
+                    {PathesConstants.settings.name}
                 </StyledLink>
             </S.MenuContainer>
         </>

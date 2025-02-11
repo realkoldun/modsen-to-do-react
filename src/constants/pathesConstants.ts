@@ -1,4 +1,4 @@
-export const PATHES = {
+export const PathesConstants = {
     home: {
         name: 'Home',
         path: '/',

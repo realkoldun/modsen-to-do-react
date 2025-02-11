@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const StyledSection = styled.section`
     ${({ theme }) => css`
+        color: ${theme.fontColor};
         flex-direction: column;
         padding: ${theme.padding.m} ${theme.padding.l};
     `}

@@ -1,7 +1,8 @@
 import { nanoid } from 'nanoid'
 import React, { createContext, useState } from 'react'
 
-import TaskInterface from '@/components/utils/TaskInterface'
+import TaskInterface from '@/utils/TaskInterface'
+import { useLocalStorage } from '@/utils/useLocalStorage'
 
 interface TaskStorageContextType {
     tasks: TaskInterface[]
@@ -20,16 +21,9 @@ export const TaskStorage = createContext<TaskStorageContextType | undefined>(
 )
 
 export default function TasksProvider({ children }: React.PropsWithChildren) {
-    const [tasks, setTasks] = useState<TaskInterface[]>(
-        JSON.parse(localStorage.getItem('tasks')) || [],
-    )
+    const [tasks, setTasks] = useLocalStorage('tasks', [])
 
     const [editingTaskId, setEditingTaskId] = useState<string>(null)
-
-    const updateLocalStorage = (newTasks: TaskInterface[]) => {
-        setTasks(newTasks)
-        localStorage.setItem('tasks', JSON.stringify(newTasks))
-    }
 
     const addTask = (newTask: string) => {
         const newTasks = [
@@ -40,39 +34,41 @@ export default function TasksProvider({ children }: React.PropsWithChildren) {
             },
             ...tasks,
         ]
-        updateLocalStorage(newTasks)
+        setTasks(newTasks)
     }
 
     const getTaskById = (taskId: string) => {
-        return tasks.find((task) => task.id === taskId)
+        return tasks.find((task: TaskInterface) => task.id === taskId)
     }
 
     const deleteTaskById = (taskId: string) => {
-        const newTasks = tasks.filter((task) => task.id !== taskId)
-        updateLocalStorage(newTasks)
+        const newTasks = tasks.filter(
+            (task: TaskInterface) => task.id !== taskId,
+        )
+        setTasks(newTasks)
     }
 
     const deleteSelectedTasks = () => {
-        const newTasks = tasks.filter((task) => !task.isChecked)
-        updateLocalStorage(newTasks)
+        const newTasks = tasks.filter((task: TaskInterface) => !task.isChecked)
+        setTasks(newTasks)
     }
 
     const checkTaskById = (taskId: string) => {
-        const newTasks = tasks.map((task) => {
+        const newTasks = tasks.map((task: TaskInterface) => {
             if (task.id === taskId) {
                 const newIsChecked = !task.isChecked
                 return { ...task, isChecked: newIsChecked }
             } else return task
         })
-        updateLocalStorage(newTasks)
+        setTasks(newTasks)
     }
 
     const editTaskById = (newTaskName: string) => {
-        const newTasks = tasks.map((task) => {
+        const newTasks = tasks.map((task: TaskInterface) => {
             if (task.id === editingTaskId) return { ...task, name: newTaskName }
             else return task
         })
-        updateLocalStorage(newTasks)
+        setTasks(newTasks)
         setEditingTaskId(null)
     }
 
