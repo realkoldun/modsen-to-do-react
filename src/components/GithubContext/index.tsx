@@ -8,9 +8,7 @@ interface GithubStorageContextType {
     findUser: (username: string) => void
 }
 
-export const GithubStorage = createContext<
-    GithubStorageContextType | undefined
->(undefined)
+export const GithubStorage = createContext<GithubStorageContextType>(null)
 
 const GITHUB_SEARCH_API_URL = 'https://api.github.com/users/'
 
