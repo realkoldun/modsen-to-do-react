@@ -70,9 +70,10 @@ export const lightTheme = {
     headerFontColor: COLORS.white,
 }
 export const darkTheme = {
+    ...basicTheme,
+
     mainBackground: COLORS.veryDarkGray,
     headerBackground: COLORS.darkGray,
     fontColor: COLORS.white,
     headerFontColor: COLORS.white,
-    ...basicTheme,
 }

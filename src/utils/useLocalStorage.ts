@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react'
 
 import TaskInterface from '@/utils/TaskInterface'
 
-export function useLocalStorage(
-    key: string,
-    initialValue: TaskInterface[] | string,
-) {
+export function useLocalStorage(key: string, initialValue: TaskInterface[]) {
     const [value, setValue] = useState(() => {
         const item = window.localStorage.getItem(key)
         return item ? JSON.parse(item) : initialValue
