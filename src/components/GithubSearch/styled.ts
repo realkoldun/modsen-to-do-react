@@ -25,7 +25,11 @@ export const StyledLegend = styled.legend`
     `}
 `
 
-export const StyledDisplay = styled.input``
+export const StyledDisplay = styled.input`
+    ${({ theme }) => css`
+        width: ${theme.sizes.full};
+    `}
+`
 
 export const StyledLabel = styled.label`
     display: flex;
