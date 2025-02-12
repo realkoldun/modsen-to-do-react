@@ -41,6 +41,12 @@ export const StyledLabel = styled.label`
     `}
 `
 
+export const StyledSearchContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
 export const StyledSearchButton = styled.button`
     background: none;
     border: none;

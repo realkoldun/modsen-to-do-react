@@ -21,19 +21,21 @@ export default function GitHubSearch(props: GithubSearchPropsType) {
             <S.StyledSection>
                 <S.StyledLabel>
                     <S.StyledLegend>GitHub info</S.StyledLegend>
-                    <S.StyledDisplay
-                        value={inputValue}
-                        onChange={handleInput}
-                        placeholder="Search name..."
-                    ></S.StyledDisplay>
+                    <S.StyledSearchContainer>
+                        <S.StyledDisplay
+                            value={inputValue}
+                            onChange={handleInput}
+                            placeholder="Search name..."
+                        />
+                        <S.StyledSearchButton type="button">
+                            <S.StyledImg
+                                src={SEARCH_ICON}
+                                onClick={handleOnClick}
+                                alt="search"
+                            />
+                        </S.StyledSearchButton>
+                    </S.StyledSearchContainer>
                 </S.StyledLabel>
-                <S.StyledSearchButton type="button">
-                    <S.StyledImg
-                        src={SEARCH_ICON}
-                        onClick={handleOnClick}
-                        alt="search"
-                    />
-                </S.StyledSearchButton>
             </S.StyledSection>
         </>
     )

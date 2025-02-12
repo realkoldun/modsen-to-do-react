@@ -33,7 +33,7 @@ export default function GitHubDisplay(props: GithubDisplayPropsType) {
                 <S.StyledImg
                     src={props.imageLink ? props.imageLink : GitHubPlaceholder}
                     alt="github logo"
-                ></S.StyledImg>
+                />
             </S.StyledGithubContainer>
         </S.StyledSection>
     )

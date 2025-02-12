@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
+import GithubSearchAPI from '@/api/GithubSearchAPI'
 import GitHubDisplay from '@/components/GithubDisplay'
 import GitHubSearch from '@/components/GithubSearch'
-import GithubSearchAPI from '@/utils/GithubSearchAPI'
 
 export default function GithubContext() {
     const [username, setUsername] = useState(null)

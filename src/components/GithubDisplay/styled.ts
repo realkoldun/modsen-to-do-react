@@ -8,7 +8,6 @@ export const StyledSection = styled.section`
     box-sizing: border-box;
     ${({ theme }) => css`
         padding-left: ${theme.padding.s};
-        //padding-top: ${theme.padding.m};
         font-size: ${theme.font.m};
         max-height: ${theme.sizes.xl};
         max-width: ${theme.sizes.xl};
