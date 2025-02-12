@@ -1,6 +1,6 @@
-import '@/assets/font/Jost.woff2'
-
 import { createGlobalStyle, css } from 'styled-components'
+
+import '@/assets/font/Jost.woff2'
 
 export const GlobalStyle = createGlobalStyle`
 /*  @font-face {

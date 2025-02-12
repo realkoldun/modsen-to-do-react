@@ -1,10 +1,9 @@
-import { TaskStorage } from 'components/TaskContext'
 import React, { useContext } from 'react'
-
-import TaskComponent from '@/components/TaskComponent'
-import TaskInterface from '@/utils/TaskInterface'
+import { TaskStorage } from 'components/TaskContext'
 
 import * as S from './styled'
+import TaskComponent from '@/components/TaskComponent'
+import TaskInterface from '@/utils/TaskInterface'
 
 export default function TaskList() {
     const { tasks, deleteSelectedTasks } = useContext(TaskStorage)

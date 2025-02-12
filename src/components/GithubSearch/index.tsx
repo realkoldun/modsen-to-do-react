@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-
-import SEARCH_ICON from '@/assets/icons/search.png'
+import React, { ChangeEvent, useState } from 'react'
 
 import * as S from './styled'
+import SEARCH_ICON from '@/assets/icons/search.png'
 
 interface GithubSearchPropsType {
     findUser: (username: string) => void
@@ -10,7 +9,7 @@ interface GithubSearchPropsType {
 
 export default function GitHubSearch(props: GithubSearchPropsType) {
     const [inputValue, setInputValue] = useState('')
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.currentTarget.value)
     }
     const handleOnClick = () => {

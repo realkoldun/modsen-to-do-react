@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
+import GitHubDisplay from '../GithubDisplay'
+import GitHubSearch from '../GithubSearch'
 import GithubSearchAPI from '@/api/GithubSearchAPI'
-import GitHubDisplay from '@/components/GithubDisplay'
-import GitHubSearch from '@/components/GithubSearch'
 
-export default function GithubContext() {
+export default function GithubComponent() {
     const [username, setUsername] = useState(null)
     const [imageLink, setImageLink] = useState(null)
 

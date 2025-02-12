@@ -1,10 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import * as S from './styled'
 import { StyledLink } from '@/components/Header/styled'
 import { PathesConstants } from '@/constants/pathesConstants'
-
-import * as S from './styled'
 
 interface BurgerMenuProps {
     open: boolean

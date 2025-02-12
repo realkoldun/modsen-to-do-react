@@ -1,10 +1,9 @@
-import { TaskStorage } from 'components/TaskContext'
 import React, { useContext, useState } from 'react'
-
-import DELETE_ICON from '@/assets/icons/delete_icon.png'
-import EDIT_ICON from '@/assets/icons/edit_icon.png'
+import { TaskStorage } from 'components/TaskContext'
 
 import * as S from './styled'
+import DELETE_ICON from '@/assets/icons/delete_icon.png'
+import EDIT_ICON from '@/assets/icons/edit_icon.png'
 
 interface TaskInterface {
     key: string
