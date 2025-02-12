@@ -1,18 +1,20 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 
 import SEARCH_ICON from '@/assets/icons/search.png'
-import { GithubStorage } from '@/components/GithubContext'
 
 import * as S from './styled'
 
-export default function GitHubSearch() {
-    const { findUser } = useContext(GithubStorage)
+interface GithubSearchPropsType {
+    findUser: (username: string) => void
+}
+
+export default function GitHubSearch(props: GithubSearchPropsType) {
     const [inputValue, setInputValue] = useState('')
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.currentTarget.value)
     }
     const handleOnClick = () => {
-        findUser(inputValue)
+        props.findUser(inputValue)
     }
     return (
         <>
