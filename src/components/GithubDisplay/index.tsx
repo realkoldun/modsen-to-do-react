@@ -13,6 +13,7 @@ interface GithubDisplayPropsType {
 
 export default function GitHubDisplay(props: GithubDisplayPropsType) {
     const { currentTheme } = useContext(ThemeStorage)
+    const { imageLink, username } = props
     const [GithubPlaceholder, setGithubPlaceholder] = useState(
         currentTheme === ThemeConstants.dark
             ? GithubLogoDarkTheme
@@ -28,9 +29,9 @@ export default function GitHubDisplay(props: GithubDisplayPropsType) {
     return (
         <S.StyledSection>
             <S.StyledGithubContainer>
-                <S.StyledLoginText>Login: {props.username}</S.StyledLoginText>
+                <S.StyledLoginText>Login: {username}</S.StyledLoginText>
                 <S.StyledImg
-                    src={props.imageLink ? props.imageLink : GithubPlaceholder}
+                    src={imageLink ? imageLink : GithubPlaceholder}
                     alt="github logo"
                 />
             </S.StyledGithubContainer>
