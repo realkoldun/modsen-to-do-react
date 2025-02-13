@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import GitHubDisplay from '../GithubDisplay'
 import GitHubSearch from '../GithubSearch'
+
 import GithubSearchAPI from '@/api/GithubSearchAPI'
 
 export default function GithubComponent() {

@@ -2,6 +2,7 @@ import React from 'react'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 
 import { GlobalStyle } from './GlobalStyle'
+
 import Header from '@/components/Header/index'
 import ThemeContext from '@/components/ThemeContext'
 import { PathesConstants } from '@/constants/pathesConstants'

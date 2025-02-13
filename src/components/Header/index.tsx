@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import * as S from './styled'
+
 import BurgerMenu from '@/components/BurgerMenu'
 import { PathesConstants } from '@/constants/pathesConstants'
 

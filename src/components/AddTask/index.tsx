@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
 import { TaskStorage } from 'components/TaskContext'
+import React, { useContext, useEffect, useState } from 'react'
 
 import * as S from './styled'
+
 import { StyledInput } from '@/components/InputComponent/styled'
 
 export default function AddTask() {

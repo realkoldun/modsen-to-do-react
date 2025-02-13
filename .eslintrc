@@ -16,7 +16,7 @@
   "plugins": [
     "@typescript-eslint",
     "prettier",
-    "simple-import-sort"
+    "import"
   ],
   "extends": [
     "eslint:recommended",
@@ -29,20 +29,24 @@
   "rules": {
     "prettier/prettier": "error",
     "no-console": "error",
-    "simple-import-sort/imports": [
+    "import/order": [
       "error",
       {
         "groups": [
-          ["^react", "^@?\\w"]
-        ]
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
-    ],
-    "simple-import-sort/exports": "error"
+    ]
   },
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "ignorePatterns": ["**/*.css","**/*.scss", "./dist", "./node_modules", "./src/assets"]
+  "ignorePatterns": ["**/*.css", "**/*.scss", "./dist", "./node_modules", "./src/assets"]
 }

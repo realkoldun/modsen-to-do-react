@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
 import { TaskStorage } from 'components/TaskContext'
+import React, { useContext } from 'react'
 
 import * as S from './styled'
+
 import TaskComponent from '@/components/TaskComponent'
 import TaskInterface from '@/utils/TaskInterface'
 
