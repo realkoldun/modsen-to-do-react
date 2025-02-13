@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 
 import * as S from './styled'
 import SEARCH_ICON from '@/assets/icons/search.png'
-import { StyledInput } from "@/components/InputComponent/styled";
+import { StyledInput } from '@/components/InputComponent/styled'
 
 interface GithubSearchPropsType {
     findUser: (username: string) => void
