@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 
 import * as S from './styled'
-import GitHubLogoLightTheme from '@/assets/icons/ghlogo_dark.png'
-import GitHubLogoDarkTheme from '@/assets/icons/ghlogo_light.png'
+import GithubLogoLightTheme from '@/assets/icons/ghlogo_dark.png'
+import GithubLogoDarkTheme from '@/assets/icons/ghlogo_light.png'
 import { ThemeStorage } from '@/components/ThemeContext'
 import { ThemeConstants } from '@/constants/themeConstants'
 
@@ -13,16 +13,16 @@ interface GithubDisplayPropsType {
 
 export default function GitHubDisplay(props: GithubDisplayPropsType) {
     const { currentTheme } = useContext(ThemeStorage)
-    const [GitHubPlaceholder, setGitHubPlaceholder] = useState(
+    const [GithubPlaceholder, setGithubPlaceholder] = useState(
         currentTheme === ThemeConstants.dark
-            ? GitHubLogoDarkTheme
-            : GitHubLogoLightTheme,
+            ? GithubLogoDarkTheme
+            : GithubLogoLightTheme,
     )
 
     useEffect(() => {
         if (currentTheme === ThemeConstants.dark)
-            setGitHubPlaceholder(GitHubLogoDarkTheme)
-        else setGitHubPlaceholder(GitHubLogoLightTheme)
+            setGithubPlaceholder(GithubLogoDarkTheme)
+        else setGithubPlaceholder(GithubLogoLightTheme)
     }, [currentTheme])
 
     return (
@@ -30,7 +30,7 @@ export default function GitHubDisplay(props: GithubDisplayPropsType) {
             <S.StyledGithubContainer>
                 <S.StyledLoginText>Login: {props.username}</S.StyledLoginText>
                 <S.StyledImg
-                    src={props.imageLink ? props.imageLink : GitHubPlaceholder}
+                    src={props.imageLink ? props.imageLink : GithubPlaceholder}
                     alt="github logo"
                 />
             </S.StyledGithubContainer>
