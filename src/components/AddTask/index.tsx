@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TaskStorage } from 'components/TaskContext'
 
 import * as S from './styled'
+import { StyledInput } from '@/components/InputComponent/styled'
 
 export default function AddTask() {
     const { addTask, editTaskById, editingTaskId, getTaskById } =
@@ -27,7 +28,8 @@ export default function AddTask() {
         <S.StyledSection>
             <S.StyledLabel>
                 <S.StyledLegend>Add a new task</S.StyledLegend>
-                <S.StyledDisplay
+                <StyledInput
+                    isFullWidth={false}
                     value={taskName}
                     placeholder="input your task"
                     onInput={handleInput}

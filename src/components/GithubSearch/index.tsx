@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 
 import * as S from './styled'
 import SEARCH_ICON from '@/assets/icons/search.png'
+import { StyledInput } from "@/components/InputComponent/styled";
 
 interface GithubSearchPropsType {
     findUser: (username: string) => void
@@ -21,7 +22,8 @@ export default function GitHubSearch(props: GithubSearchPropsType) {
                 <S.StyledLabel>
                     <S.StyledLegend>GitHub info</S.StyledLegend>
                     <S.StyledSearchContainer>
-                        <S.StyledDisplay
+                        <StyledInput
+                            isFullWidth={true}
                             value={inputValue}
                             onChange={handleInput}
                             placeholder="Search name..."

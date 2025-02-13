@@ -24,8 +24,6 @@ export const StyledLegend = styled.legend`
     `}
 `
 
-export const StyledDisplay = styled.input``
-
 export const StyledLabel = styled.label`
     display: flex;
     flex-direction: column;
