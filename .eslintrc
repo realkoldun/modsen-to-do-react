@@ -27,26 +27,50 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "no-console": "error",
+    // это для сортировки ВНУТРИ импорта
+    "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
+    // это для сортировки импортов
     "import/order": [
       "error",
       {
         "groups": [
-          "builtin",
-          "external",
+          ["external", "builtin"],
           "internal",
-          ["parent", "sibling", "index"]
+          ["sibling", "parent"],
+          "index"
         ],
+        "pathGroups": [
+          {
+            "pattern": "@(react|react-native)",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@src/**",
+            "group": "internal"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["internal", "react"],
         "newlines-between": "always",
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
-    ]
+    ],
+    "prettier/prettier": "error",
+    "no-console": "error"
   },
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "ignorePatterns": ["**/*.css", "**/*.scss", "./dist", "./node_modules", "./src/assets"]
+  "ignorePatterns": [
+    "**/*.css",
+    "**/*.scss",
+    "./dist",
+    "./node_modules",
+    "./src/assets"
+  ]
 }

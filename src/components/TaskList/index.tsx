@@ -1,5 +1,6 @@
-import { TaskStorage } from 'components/TaskContext'
 import React, { useContext } from 'react'
+
+import { TaskStorage } from 'components/TaskContext'
 
 import * as S from './styled'
 

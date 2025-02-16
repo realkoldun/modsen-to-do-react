@@ -1,5 +1,6 @@
-import GithubComponent from 'components/GithubComponent'
 import React from 'react'
+
+import GithubComponent from 'components/GithubComponent'
 
 import { SettingsPageStyle } from './styled'
 
