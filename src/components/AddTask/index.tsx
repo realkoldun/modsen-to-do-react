@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 
-import { TaskStorage } from 'components/TaskContext'
-
 import * as S from './styled'
 
 import { StyledInput } from '@/components/InputComponent/styled'
+import { TaskStorage } from '@/components/TaskContext'
 
 export default function AddTask() {
     const { addTask, editTaskById, editingTaskId, getTaskById } =
@@ -16,7 +15,7 @@ export default function AddTask() {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         if (editingTaskId) editTaskById(taskName)
-        else if (taskName) addTask(taskName)
+        else if (taskName.trim()) addTask(taskName)
         setTaskName('')
     }
     useEffect(() => {
@@ -34,7 +33,7 @@ export default function AddTask() {
                     isFullWidth={false}
                     value={taskName}
                     placeholder="input your task"
-                    onInput={handleInput}
+                    onChange={handleInput}
                 />
             </S.StyledLabel>
             <S.StyledAddButton type="button" onClick={handleSubmit}>

@@ -11,7 +11,8 @@ export const StyledInput = styled.input<StyledInputProps>`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: ${({ isFullWidth }) => (isFullWidth ? '100%' : '')};
+    width: ${({ isFullWidth }) =>
+        isFullWidth ? '100%' : 'auto'}; // 'auto' вместо пустого
     ${({ theme }) => css`
         font-size: ${theme.font.m};
         min-height: ${theme.sizes.xs};

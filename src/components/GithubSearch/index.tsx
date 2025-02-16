@@ -29,12 +29,11 @@ export default function GitHubSearch(props: GithubSearchPropsType) {
                             onChange={handleInput}
                             placeholder="Search name..."
                         />
-                        <S.StyledSearchButton type="button">
-                            <S.StyledImg
-                                src={SEARCH_ICON}
-                                onClick={handleOnClick}
-                                alt="search"
-                            />
+                        <S.StyledSearchButton
+                            type="button"
+                            onClick={handleOnClick}
+                        >
+                            <S.StyledImg src={SEARCH_ICON} alt="search" />
                         </S.StyledSearchButton>
                     </S.StyledSearchContainer>
                 </S.StyledLabel>

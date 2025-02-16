@@ -73,6 +73,10 @@ export default function TasksProvider({ children }: React.PropsWithChildren) {
         setEditingTaskId(null)
     }
 
+    /*const clearTasks = () => {
+        setTasks([])
+    }*/
+
     return (
         <TaskStorage.Provider
             value={{
