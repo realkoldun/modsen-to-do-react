@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {
+    ChangeEvent,
+    MouseEvent,
+    useContext,
+    useEffect,
+    useState,
+} from 'react'
 
 import { TaskStorage } from 'components/TaskContext'
 
@@ -10,10 +16,10 @@ export default function AddTask() {
     const { addTask, editTaskById, editingTaskId, getTaskById } =
         useContext(TaskStorage)
     const [taskName, setTaskName] = useState('')
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setTaskName(e.target.value)
     }
-    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         if (editingTaskId) editTaskById(taskName)
         else if (taskName) addTask(taskName)

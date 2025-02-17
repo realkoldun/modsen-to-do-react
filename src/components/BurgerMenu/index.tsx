@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch, FC, SetStateAction } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -9,15 +9,11 @@ import { PathesConstants } from '@/constants/pathesConstants'
 
 interface BurgerMenuProps {
     open: boolean
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setOpen: Dispatch<SetStateAction<boolean>>
     activePath: string
 }
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({
-    open,
-    setOpen,
-    activePath,
-}) => {
+const BurgerMenu: FC<BurgerMenuProps> = ({ open, setOpen, activePath }) => {
     const nav = useNavigate()
 
     const handleNavigateOnClick = (path: string) => () => {

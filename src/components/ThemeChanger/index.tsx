@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { ChangeEvent, useContext } from 'react'
 
 import * as S from '@/components/ThemeChanger/styled'
 import { ThemeStorage } from '@/components/ThemeContext'
@@ -7,7 +7,7 @@ import { ThemeConstants } from '@/constants/themeConstants'
 export default function ThemeChanger() {
     const { currentTheme, changeTheme } = useContext(ThemeStorage)
 
-    const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
         const newTheme = e.currentTarget.value
         if (newTheme !== currentTheme) changeTheme(newTheme)
     }
