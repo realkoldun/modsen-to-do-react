@@ -1,9 +1,8 @@
 import React from 'react'
 
-import GithubComponent from 'components/GithubComponent'
-
 import { SettingsPageStyle } from './styled'
 
+import GithubComponent from '@/components/GithubComponent'
 import ThemeChanger from '@/components/ThemeChanger/index'
 
 export default function SettingsPage() {

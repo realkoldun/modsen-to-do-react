@@ -1,8 +1,7 @@
 import React from 'react'
 
-import TasksProvider from 'components/TaskContext'
-
 import AddTask from '@/components/AddTask/index'
+import TasksProvider from '@/components/TaskContext'
 import TaskList from '@/components/TaskList'
 
 export default function HomePage() {

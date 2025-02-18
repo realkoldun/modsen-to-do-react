@@ -29,12 +29,11 @@ export default function GitHubSearch({ findUser }: GithubSearchPropsType) {
                             placeholder="Search name..."
                             fullwidth={true}
                         />
-                        <S.StyledSearchButton type="button">
-                            <S.StyledImg
-                                src={SEARCH_ICON}
-                                onClick={handleOnClick}
-                                alt="search"
-                            />
+                        <S.StyledSearchButton
+                            onClick={handleOnClick}
+                            type="button"
+                        >
+                            <S.StyledImg src={SEARCH_ICON} alt="search" />
                         </S.StyledSearchButton>
                     </S.StyledSearchContainer>
                 </S.StyledLabel>
