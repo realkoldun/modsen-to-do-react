@@ -7,8 +7,8 @@ import { ThemeConstants } from '@/constants/themeConstants'
 export default function ThemeChanger() {
     const { currentTheme, changeTheme } = useContext(ThemeStorage)
 
-    const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        const newTheme = e.currentTarget.value
+    const handleOnChange = (changeEvent: ChangeEvent<HTMLSelectElement>) => {
+        const newTheme = changeEvent.currentTarget.value
         if (newTheme !== currentTheme) changeTheme(newTheme)
     }
 

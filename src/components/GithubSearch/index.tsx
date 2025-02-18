@@ -9,13 +9,13 @@ interface GithubSearchPropsType {
     findUser: (username: string) => void
 }
 
-export default function GitHubSearch(props: GithubSearchPropsType) {
+export default function GitHubSearch({ findUser }: GithubSearchPropsType) {
     const [inputValue, setInputValue] = useState('')
-    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.currentTarget.value)
+    const handleInput = (changeEvent: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(changeEvent.currentTarget.value)
     }
     const handleOnClick = () => {
-        props.findUser(inputValue)
+        findUser(inputValue)
     }
     return (
         <>
@@ -24,10 +24,10 @@ export default function GitHubSearch(props: GithubSearchPropsType) {
                     <S.StyledLegend>GitHub info</S.StyledLegend>
                     <S.StyledSearchContainer>
                         <StyledInput
-                            isFullWidth={true}
                             value={inputValue}
                             onChange={handleInput}
                             placeholder="Search name..."
+                            fullwidth={true}
                         />
                         <S.StyledSearchButton type="button">
                             <S.StyledImg

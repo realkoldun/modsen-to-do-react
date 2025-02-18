@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface StyledInputProps {
-    isFullWidth: boolean
+    fullwidth: boolean
 }
 
 export const StyledInput = styled.input<StyledInputProps>`
@@ -11,7 +11,7 @@ export const StyledInput = styled.input<StyledInputProps>`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: ${({ isFullWidth }) => (isFullWidth ? '100%' : '')};
+    width: ${({ fullwidth }) => (fullwidth ? '100%' : '')};
     ${({ theme }) => css`
         font-size: ${theme.font.m};
         min-height: ${theme.sizes.xs};

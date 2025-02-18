@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -13,7 +13,11 @@ interface BurgerMenuProps {
     activePath: string
 }
 
-const BurgerMenu: FC<BurgerMenuProps> = ({ open, setOpen, activePath }) => {
+export default function BurgerMenu({
+    open,
+    setOpen,
+    activePath,
+}: BurgerMenuProps) {
     const nav = useNavigate()
 
     const handleNavigateOnClick = (path: string) => () => {
@@ -51,5 +55,3 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ open, setOpen, activePath }) => {
         </>
     )
 }
-
-export default BurgerMenu

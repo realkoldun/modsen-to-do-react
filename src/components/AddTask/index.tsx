@@ -19,8 +19,8 @@ export default function AddTask() {
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setTaskName(e.target.value)
     }
-    const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
+    const handleSubmit = (mouseEvent: MouseEvent<HTMLButtonElement>) => {
+        mouseEvent.preventDefault()
         if (editingTaskId) editTaskById(taskName)
         else if (taskName) addTask(taskName)
         setTaskName('')
@@ -37,7 +37,7 @@ export default function AddTask() {
             <S.StyledLabel>
                 <S.StyledLegend>Add a new task</S.StyledLegend>
                 <StyledInput
-                    isFullWidth={false}
+                    fullwidth={false}
                     value={taskName}
                     placeholder="input your task"
                     onInput={handleInput}

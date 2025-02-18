@@ -14,8 +14,7 @@ interface TaskInterface {
     isChecked: boolean
 }
 
-export default function TaskComponent(props: TaskInterface) {
-    const { id, name, isChecked } = props
+export default function TaskComponent({ id, name, isChecked }: TaskInterface) {
     const { deleteTaskById, checkTaskById, setEditingTaskId } =
         useContext(TaskStorage)
     const [task, setTask] = useState({ name, isChecked })
