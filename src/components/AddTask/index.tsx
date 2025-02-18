@@ -1,17 +1,26 @@
+import React, {
+    ChangeEvent,
+    MouseEvent,
+    useContext,
+    useEffect,
+    useState,
+} from 'react'
+
 import { TaskStorage } from 'components/TaskContext'
-import React, { useContext, useEffect, useState } from 'react'
 
 import * as S from './styled'
+
+import { StyledInput } from '@/components/InputComponent/styled'
 
 export default function AddTask() {
     const { addTask, editTaskById, editingTaskId, getTaskById } =
         useContext(TaskStorage)
     const [taskName, setTaskName] = useState('')
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setTaskName(e.target.value)
     }
-    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
+    const handleSubmit = (mouseEvent: MouseEvent<HTMLButtonElement>) => {
+        mouseEvent.preventDefault()
         if (editingTaskId) editTaskById(taskName)
         else if (taskName) addTask(taskName)
         setTaskName('')
@@ -27,7 +36,8 @@ export default function AddTask() {
         <S.StyledSection>
             <S.StyledLabel>
                 <S.StyledLegend>Add a new task</S.StyledLegend>
-                <S.StyledDisplay
+                <StyledInput
+                    fullwidth={false}
                     value={taskName}
                     placeholder="input your task"
                     onInput={handleInput}

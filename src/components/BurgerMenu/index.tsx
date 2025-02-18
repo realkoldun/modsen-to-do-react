@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
+
 import { useNavigate } from 'react-router-dom'
+
+import * as S from './styled'
 
 import { StyledLink } from '@/components/Header/styled'
 import { PathesConstants } from '@/constants/pathesConstants'
 
-import * as S from './styled'
-
 interface BurgerMenuProps {
     open: boolean
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setOpen: Dispatch<SetStateAction<boolean>>
     activePath: string
 }
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({
+export default function BurgerMenu({
     open,
     setOpen,
     activePath,
-}) => {
+}: BurgerMenuProps) {
     const nav = useNavigate()
 
     const handleNavigateOnClick = (path: string) => () => {
@@ -54,5 +55,3 @@ const BurgerMenu: React.FC<BurgerMenuProps> = ({
         </>
     )
 }
-
-export default BurgerMenu

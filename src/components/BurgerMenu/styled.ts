@@ -13,7 +13,6 @@ export const BurgerMenuContainer = styled.div`
     background: transparent;
     border: none;
     cursor: pointer;
-    position: fixed;
     top: 1.5rem;
     right: 1rem;
     z-index: 20;

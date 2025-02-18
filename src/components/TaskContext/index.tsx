@@ -1,5 +1,6 @@
+import React, { createContext, PropsWithChildren, useState } from 'react'
+
 import { nanoid } from 'nanoid'
-import React, { createContext, useState } from 'react'
 
 import TaskInterface from '@/utils/TaskInterface'
 import { useLocalStorage } from '@/utils/useLocalStorage'
@@ -20,7 +21,7 @@ export const TaskStorage = createContext<TaskStorageContextType | undefined>(
     undefined,
 )
 
-export default function TasksProvider({ children }: React.PropsWithChildren) {
+export default function TasksProvider({ children }: PropsWithChildren) {
     const [tasks, setTasks] = useLocalStorage('tasks', [])
 
     const [editingTaskId, setEditingTaskId] = useState<string>(null)
