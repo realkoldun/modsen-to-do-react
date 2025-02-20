@@ -27,9 +27,7 @@
     "prettier"
   ],
   "rules": {
-    // это для сортировки ВНУТРИ импорта
     "sort-imports": ["error", { "ignoreCase": true, "ignoreDeclarationSort": true }],
-    // это для сортировки импортов
     "import/order": [
       "error",
       {
@@ -59,7 +57,8 @@
       }
     ],
     "prettier/prettier": "error",
-    "no-console": "error"
+    "no-console": "error",
+    "no-inline-comments": "error"
   },
   "settings": {
     "react": {

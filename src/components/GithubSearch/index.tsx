@@ -15,7 +15,9 @@ export default function GitHubSearch({ findUser }: GithubSearchPropsType) {
         setInputValue(changeEvent.currentTarget.value)
     }
     const handleOnClick = () => {
-        findUser(inputValue)
+        const trimmedValue = inputValue.trim()
+        if (!trimmedValue) return
+        findUser(trimmedValue)
     }
     return (
         <>
