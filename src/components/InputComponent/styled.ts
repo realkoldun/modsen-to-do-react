@@ -26,8 +26,7 @@ export const StyledInput = styled.input<StyledInputProps>`
             font-size: ${theme.font.s};
         }
 
-        :focus {
-            border-bottom: ${theme.sizes.xxs} solid ${theme.headerBackground};
+        &:focus {
             outline: none;
         }
     `}

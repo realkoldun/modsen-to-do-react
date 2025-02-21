@@ -57,7 +57,8 @@
       }
     ],
     "prettier/prettier": "error",
-    "no-console": "error"
+    "no-console": "error",
+    "no-inline-comments": "error"
   },
   "settings": {
     "react": {

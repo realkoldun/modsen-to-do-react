@@ -15,7 +15,9 @@ export default function GitHubSearch({ findUser }: GithubSearchPropsType) {
         setInputValue(changeEvent.currentTarget.value)
     }
     const handleOnClick = () => {
-        findUser(inputValue)
+        const trimmedValue = inputValue.trim()
+        if (!trimmedValue) return
+        findUser(trimmedValue)
     }
     return (
         <>
@@ -29,12 +31,11 @@ export default function GitHubSearch({ findUser }: GithubSearchPropsType) {
                             placeholder="Search name..."
                             fullwidth={true}
                         />
-                        <S.StyledSearchButton type="button">
-                            <S.StyledImg
-                                src={SEARCH_ICON}
-                                onClick={handleOnClick}
-                                alt="search"
-                            />
+                        <S.StyledSearchButton
+                            onClick={handleOnClick}
+                            type="button"
+                        >
+                            <S.StyledImg src={SEARCH_ICON} alt="search" />
                         </S.StyledSearchButton>
                     </S.StyledSearchContainer>
                 </S.StyledLabel>

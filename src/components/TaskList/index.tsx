@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
-
-import { TaskStorage } from 'components/TaskContext'
+import React, { useContext, useEffect, useState } from 'react'
 
 import * as S from './styled'
 
 import TaskComponent from '@/components/TaskComponent'
+import { TaskStorage } from '@/components/TaskContext'
 import TaskInterface from '@/utils/TaskInterface'
 
 export default function TaskList() {
     const { tasks, deleteSelectedTasks } = useContext(TaskStorage)
+    const [isOneTasksChecked, setOneTasksChecked] = useState(false)
     const Tasks = () => {
         return tasks.map((task: TaskInterface) => {
             return (
@@ -25,6 +25,12 @@ export default function TaskList() {
         deleteSelectedTasks()
     }
 
+    useEffect(() => {
+        if (tasks.some((task) => task.isChecked)) {
+            setOneTasksChecked(true)
+        } else setOneTasksChecked(false)
+    }, [tasks])
+
     return (
         <S.StyledSection>
             <S.StyledHeaderText>Task List</S.StyledHeaderText>
@@ -38,9 +44,13 @@ export default function TaskList() {
                         <Tasks />
                     </S.StyledTasksContainer>
                     <S.StyledSeparateLine />
-                    <S.StyledDeleteButton onClick={handleDeleteSelectedTask}>
-                        Deleted Selected
-                    </S.StyledDeleteButton>
+                    {isOneTasksChecked && (
+                        <S.StyledDeleteButton
+                            onClick={handleDeleteSelectedTask}
+                        >
+                            Deleted Selected
+                        </S.StyledDeleteButton>
+                    )}
                 </>
             )}
         </S.StyledSection>
