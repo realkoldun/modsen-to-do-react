@@ -20,26 +20,21 @@ export default function GitHubSearch({ findUser }: GithubSearchPropsType) {
         findUser(trimmedValue)
     }
     return (
-        <>
-            <S.StyledSection>
-                <S.StyledLabel>
-                    <S.StyledLegend>GitHub info</S.StyledLegend>
-                    <S.StyledSearchContainer>
-                        <StyledInput
-                            value={inputValue}
-                            onChange={handleInput}
-                            placeholder="Search name..."
-                            fullwidth={true}
-                        />
-                        <S.StyledSearchButton
-                            onClick={handleOnClick}
-                            type="button"
-                        >
-                            <S.StyledImg src={SEARCH_ICON} alt="search" />
-                        </S.StyledSearchButton>
-                    </S.StyledSearchContainer>
-                </S.StyledLabel>
-            </S.StyledSection>
-        </>
+        <S.StyledSection>
+            <S.StyledLabel>
+                <S.StyledLegend>GitHub info</S.StyledLegend>
+                <S.StyledSearchContainer>
+                    <StyledInput
+                        value={inputValue}
+                        onChange={handleInput}
+                        placeholder="Search name..."
+                        fullwidth={true}
+                    />
+                    <S.StyledSearchButton onClick={handleOnClick} type="button">
+                        <S.StyledImg src={SEARCH_ICON} alt="search" />
+                    </S.StyledSearchButton>
+                </S.StyledSearchContainer>
+            </S.StyledLabel>
+        </S.StyledSection>
     )
 }

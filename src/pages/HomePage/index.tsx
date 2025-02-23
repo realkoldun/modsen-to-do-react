@@ -6,11 +6,9 @@ import TaskList from '@/components/TaskList'
 
 export default function HomePage() {
     return (
-        <>
-            <TasksProvider>
-                <AddTask />
-                <TaskList />
-            </TasksProvider>
-        </>
+        <TasksProvider>
+            <AddTask />
+            <TaskList />
+        </TasksProvider>
     )
 }

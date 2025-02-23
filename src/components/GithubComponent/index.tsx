@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import GitHubDisplay from '../GithubDisplay'
 import GitHubSearch from '../GithubSearch'
 
-import GithubSearchAPI from '@/api/GithubSearchAPI'
+import githubSearchAPI from '@/api/githubSearchAPI'
 
 export default function GithubComponent() {
     const [username, setUsername] = useState(null)
@@ -11,7 +11,7 @@ export default function GithubComponent() {
 
     const findUser = async (username: string) => {
         try {
-            const data = await GithubSearchAPI(username)
+            const data = await githubSearchAPI(username)
             setUsername(data.login)
             setImageLink(data.avatar_url)
         } catch (error) {

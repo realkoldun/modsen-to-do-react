@@ -7,11 +7,9 @@ import ThemeChanger from '@/components/ThemeChanger/index'
 
 export default function SettingsPage() {
     return (
-        <>
-            <SettingsPageStyle>
-                <ThemeChanger />
-                <GithubComponent />
-            </SettingsPageStyle>
-        </>
+        <SettingsPageStyle>
+            <ThemeChanger />
+            <GithubComponent />
+        </SettingsPageStyle>
     )
 }

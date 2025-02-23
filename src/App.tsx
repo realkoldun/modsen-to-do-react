@@ -4,6 +4,7 @@ import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 
 import { GlobalStyle } from './GlobalStyle'
 
+import ErrorBoundary from '@/components/ErrorBoundary'
 import Header from '@/components/Header/index'
 import ThemeContext from '@/components/ThemeContext'
 import { PathesConstants } from '@/constants/pathesConstants'
@@ -12,7 +13,7 @@ import SettingsPage from '@/pages/SettingsPage'
 
 function App() {
     return (
-        <>
+        <ErrorBoundary>
             <ThemeContext>
                 <GlobalStyle />
                 <Router>
@@ -30,7 +31,7 @@ function App() {
                     </Routes>
                 </Router>
             </ThemeContext>
-        </>
+        </ErrorBoundary>
     )
 }
 

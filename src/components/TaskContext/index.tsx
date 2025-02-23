@@ -1,4 +1,9 @@
-import React, { createContext, PropsWithChildren, useState } from 'react'
+import React, {
+    createContext,
+    PropsWithChildren,
+    useCallback,
+    useState,
+} from 'react'
 
 import { nanoid } from 'nanoid'
 
@@ -26,52 +31,68 @@ export default function TasksProvider({ children }: PropsWithChildren) {
 
     const [editingTaskId, setEditingTaskId] = useState<string>(null)
 
-    const addTask = (newTask: string) => {
-        const newTasks = [
-            {
-                name: newTask,
-                id: nanoid(),
-                isChecked: false,
-            },
-            ...tasks,
-        ]
-        setTasks(newTasks)
-    }
+    const addTask = useCallback(
+        (newTask: string) => {
+            const newTasks = [
+                {
+                    name: newTask,
+                    id: nanoid(),
+                    isChecked: false,
+                },
+                ...tasks,
+            ]
+            setTasks(newTasks)
+        },
+        [tasks],
+    )
 
-    const getTaskById = (taskId: string) => {
-        return tasks.find((task: TaskInterface) => task.id === taskId)
-    }
+    const getTaskById = useCallback(
+        (taskId: string) => {
+            return tasks.find((task: TaskInterface) => task.id === taskId)
+        },
+        [tasks],
+    )
 
-    const deleteTaskById = (taskId: string) => {
-        const newTasks = tasks.filter(
-            (task: TaskInterface) => task.id !== taskId,
-        )
-        setTasks(newTasks)
-    }
+    const deleteTaskById = useCallback(
+        (taskId: string) => {
+            const newTasks = tasks.filter(
+                (task: TaskInterface) => task.id !== taskId,
+            )
+            setTasks(newTasks)
+        },
+        [tasks],
+    )
 
-    const deleteSelectedTasks = () => {
+    const deleteSelectedTasks = useCallback(() => {
         const newTasks = tasks.filter((task: TaskInterface) => !task.isChecked)
         setTasks(newTasks)
-    }
+    }, [tasks])
 
-    const checkTaskById = (taskId: string) => {
-        const newTasks = tasks.map((task: TaskInterface) => {
-            if (task.id === taskId) {
-                const newIsChecked = !task.isChecked
-                return { ...task, isChecked: newIsChecked }
-            } else return task
-        })
-        setTasks(newTasks)
-    }
+    const checkTaskById = useCallback(
+        (taskId: string) => {
+            const newTasks = tasks.map((task: TaskInterface) => {
+                if (task.id === taskId) {
+                    const newIsChecked = !task.isChecked
+                    return { ...task, isChecked: newIsChecked }
+                } else return task
+            })
+            setTasks(newTasks)
+        },
+        [tasks],
+    )
 
-    const editTaskById = (newTaskName: string) => {
-        const newTasks = tasks.map((task: TaskInterface) => {
-            if (task.id === editingTaskId) return { ...task, name: newTaskName }
-            else return task
-        })
-        setTasks(newTasks)
-        setEditingTaskId(null)
-    }
+    const editTaskById = useCallback(
+        (newTaskName: string) => {
+            const newTasks = tasks.map((task: TaskInterface) => {
+                if (task.id === editingTaskId)
+                    return { ...task, name: newTaskName }
+                else return task
+            })
+            setTasks(newTasks)
+            setEditingTaskId(null)
+        },
+        [tasks, editingTaskId],
+    )
 
     return (
         <TaskStorage.Provider
