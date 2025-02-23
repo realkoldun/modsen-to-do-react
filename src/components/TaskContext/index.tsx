@@ -43,7 +43,7 @@ export default function TasksProvider({ children }: PropsWithChildren) {
             ]
             setTasks(newTasks)
         },
-        [tasks],
+        [tasks, setTasks],
     )
 
     const getTaskById = useCallback(
@@ -60,13 +60,13 @@ export default function TasksProvider({ children }: PropsWithChildren) {
             )
             setTasks(newTasks)
         },
-        [tasks],
+        [tasks, setTasks],
     )
 
     const deleteSelectedTasks = useCallback(() => {
         const newTasks = tasks.filter((task: TaskInterface) => !task.isChecked)
         setTasks(newTasks)
-    }, [tasks])
+    }, [tasks, setTasks])
 
     const checkTaskById = useCallback(
         (taskId: string) => {
@@ -78,7 +78,7 @@ export default function TasksProvider({ children }: PropsWithChildren) {
             })
             setTasks(newTasks)
         },
-        [tasks],
+        [tasks, setTasks],
     )
 
     const editTaskById = useCallback(
@@ -91,7 +91,7 @@ export default function TasksProvider({ children }: PropsWithChildren) {
             setTasks(newTasks)
             setEditingTaskId(null)
         },
-        [tasks, editingTaskId],
+        [tasks, editingTaskId, setTasks],
     )
 
     return (
