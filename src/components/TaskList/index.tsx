@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { memo, useContext, useEffect, useState } from 'react'
 
 import * as S from './styled'
 
@@ -6,7 +6,7 @@ import TaskComponent from '@/components/TaskComponent'
 import { TaskStorage } from '@/components/TaskContext'
 import TaskInterface from '@/utils/TaskInterface'
 
-export default function TaskList() {
+function TaskList() {
     const { tasks, deleteSelectedTasks } = useContext(TaskStorage)
     const [isOneTasksChecked, setOneTasksChecked] = useState(false)
     const Tasks = () => {
@@ -56,3 +56,5 @@ export default function TaskList() {
         </S.StyledSection>
     )
 }
+
+export default memo(TaskList)

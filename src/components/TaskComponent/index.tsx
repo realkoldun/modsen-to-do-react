@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { memo, useContext, useState } from 'react'
 
 import * as S from './styled'
 
@@ -13,7 +13,7 @@ interface TaskInterface {
     isChecked: boolean
 }
 
-export default function TaskComponent({ id, name, isChecked }: TaskInterface) {
+function TaskComponent({ id, name, isChecked }: TaskInterface) {
     const { deleteTaskById, checkTaskById, setEditingTaskId } =
         useContext(TaskStorage)
     const [task, setTask] = useState({ name, isChecked })
@@ -57,3 +57,5 @@ export default function TaskComponent({ id, name, isChecked }: TaskInterface) {
         </S.StyledSection>
     )
 }
+
+export default memo(TaskComponent)
