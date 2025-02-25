@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import * as S from './styled'
 
@@ -57,4 +57,4 @@ function TaskList() {
     )
 }
 
-export default memo(TaskList)
+export default TaskList
