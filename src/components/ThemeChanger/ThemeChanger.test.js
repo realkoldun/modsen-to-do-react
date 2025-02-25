@@ -28,7 +28,6 @@ describe('Theme Changer Tests', () => {
         renderComponent()
         const select = screen.getByRole('combobox')
 
-        // eslint-disable-next-line testing-library/no-node-access
         const rootElement = document.querySelector('.sc-jMLmsk.iLsVwo')
 
         expect(rootElement).toHaveStyleRule('color', lightTheme.fontColor)
@@ -44,7 +43,6 @@ describe('Theme Changer Tests', () => {
         renderComponent()
         const select = screen.getByRole('combobox')
 
-        // eslint-disable-next-line testing-library/no-node-access
         const rootElement = document.querySelector('.sc-jMLmsk.iLsVwo')
 
         expect(rootElement).toHaveStyleRule('color', lightTheme.fontColor)

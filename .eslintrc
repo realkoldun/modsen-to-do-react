@@ -57,7 +57,8 @@
       }
     ],
     "prettier/prettier": "error",
-    "no-inline-comments": "error"
+    "no-inline-comments": "error",
+    "testing-library/no-node-access": "off"
   },
   "settings": {
     "react": {
