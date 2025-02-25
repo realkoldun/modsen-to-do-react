@@ -21,9 +21,6 @@ function TaskList() {
             )
         })
     }
-    const handleDeleteSelectedTask = () => {
-        deleteSelectedTasks()
-    }
 
     useEffect(() => {
         if (tasks.some((task) => task.isChecked)) {
@@ -45,9 +42,7 @@ function TaskList() {
                     </S.StyledTasksContainer>
                     <S.StyledSeparateLine />
                     {isOneTasksChecked && (
-                        <S.StyledDeleteButton
-                            onClick={handleDeleteSelectedTask}
-                        >
+                        <S.StyledDeleteButton onClick={deleteSelectedTasks}>
                             Deleted Selected
                         </S.StyledDeleteButton>
                     )}
