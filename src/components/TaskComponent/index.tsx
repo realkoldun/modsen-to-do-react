@@ -1,0 +1,61 @@
+import React, { memo, useContext, useState } from 'react'
+
+import * as S from './styled'
+
+import DELETE_ICON from '@/assets/icons/delete_icon.png'
+import EDIT_ICON from '@/assets/icons/edit_icon.png'
+import { TaskStorage } from '@/components/TaskContext'
+
+interface TaskInterface {
+    key: string
+    id: string
+    name: string
+    isChecked: boolean
+}
+
+function TaskComponent({ id, name, isChecked }: TaskInterface) {
+    const { deleteTaskById, checkTaskById, setEditingTaskId } =
+        useContext(TaskStorage)
+    const [task, setTask] = useState({ name, isChecked })
+
+    const handleCheckboxChange = () => {
+        setTask((prevTask) => ({
+            ...prevTask,
+            isChecked: !prevTask.isChecked,
+        }))
+        checkTaskById(id)
+    }
+
+    const handleDeleteById = () => deleteTaskById(id)
+
+    const handleEditTask = () => {
+        setEditingTaskId(id)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    }
+
+    return (
+        <S.StyledSection>
+            <S.StyledTaskContainer>
+                <S.StyledCheckbox
+                    type="checkbox"
+                    checked={task.isChecked}
+                    onChange={handleCheckboxChange}
+                ></S.StyledCheckbox>
+                <S.StyledTaskName>{task.name}</S.StyledTaskName>
+            </S.StyledTaskContainer>
+            <S.StyledIconContainer>
+                <S.StyledIconButton onClick={handleDeleteById}>
+                    <S.StyledImg src={DELETE_ICON} alt="delete" />
+                </S.StyledIconButton>
+                <S.StyledIconButton onClick={handleEditTask}>
+                    <S.StyledImg src={EDIT_ICON} alt="edit" />
+                </S.StyledIconButton>
+            </S.StyledIconContainer>
+        </S.StyledSection>
+    )
+}
+
+export default memo(TaskComponent)
