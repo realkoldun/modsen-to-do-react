@@ -1,4 +1,3 @@
-// Jenkinsfile
 pipeline {
     agent any
 
@@ -14,20 +13,27 @@ pipeline {
 
         stage('Check Node Version') {
             steps {
-                sh 'node --version'
-                sh 'npm --version'
+                bat 'node --version'
+                bat 'yarn --version'
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                // Устанавливаем зависимости строго по yarn.lock
+                bat 'yarn install --frozen-lockfile'
             }
         }
 
         stage('Lint') {
             steps {
-                sh 'npm run lint || true'
+                bat 'yarn lint || exit 0'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm run test'
+                bat 'yarn test'
             }
         }
 
@@ -36,7 +42,7 @@ pipeline {
                 anyOf { branch 'develop'; branch 'main' }
             }
             steps {
-                sh 'npm run build'
+                bat 'yarn build'
                 echo 'Приложение собрано в dist/'
             }
         }
