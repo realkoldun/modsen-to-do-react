@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJS_18"
-        yarn "Yarn_1"
+        nodejs 'NodeJS_18'
     }
 
     stages {
@@ -15,6 +14,7 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
+                sh 'npm install --global yarn'
                 sh 'yarn install --frozen-lockfile'
             }
         }
