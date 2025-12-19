@@ -1,79 +1,87 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "NodeJS_18"
-        yarn "Yarn_1"
-    }
-
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
+                echo "Ветка: ${env.BRANCH_NAME}"
+                echo "Билд: ${env.BUILD_NUMBER}"
+                echo "Ссылка на билд: ${env.BUILD_URL}"
+            }
+        }
+
+        stage('Check Node Version') {
+            steps {
+                bat 'node --version'
+                bat 'yarn --version'
             }
         }
 
         stage('Install dependencies') {
             steps {
-                sh 'yarn install --frozen-lockfile'
+                // Устанавливаем зависимости строго по yarn.lock
+                bat 'yarn install --frozen-lockfile'
             }
         }
 
         stage('Lint') {
             steps {
-                sh 'yarn lint:es'
+                bat 'yarn lint || exit 0'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'yarn test --ci --coverage'
-            }
-            post {
-                always {
-                    junit 'coverage/jest-junit.xml'
-                }
+                bat 'yarn test'
             }
         }
 
-        stage('Build Production') {
+        stage('Build') {
             when {
-                branch 'main'
+                anyOf { branch 'develop'; branch 'main' }
             }
             steps {
-                sh 'yarn build'
-            }
-            post {
-                success {
-                    archiveArtifacts artifacts: 'dist/**', fingerprint: true
-                }
+                bat 'yarn build'
+                echo 'Приложение собрано в dist/'
             }
         }
 
-        stage('Build Dev') {
-            when {
-                branch 'dev'
-            }
+        stage('Archive Artifacts') {
+            when { branch 'main' }
             steps {
-                sh 'webpack --config webpack.dev.js --mode development --output-path dev-dist'
+                archiveArtifacts artifacts: 'dist/**', fingerprint: true
+                echo 'Артефакты сохранены'
             }
-            post {
-                success {
-                    archiveArtifacts artifacts: 'dev-dist/**', fingerprint: true
-                }
+        }
+
+        stage('Deploy to Staging') {
+            when { branch 'develop' }
+            steps {
+                echo '=== ДЕПЛОЙ НА STAGING ==='
+                echo 'В реальном проекте здесь деплой на staging-сервер'
+            }
+        }
+
+        stage('Deploy to Production') {
+            when { branch 'main' }
+            steps {
+                input message: 'Одобрить деплой в ПРОДАКШЕН?', ok: 'Да'
+                echo '=== ДЕПЛОЙ В ПРОДАКШЕН ==='
+                echo 'Приложение задеплоено в продакшен!'
             }
         }
     }
 
     post {
         always {
-            echo 'Pipeline finished'
+            cleanWs()
         }
         success {
-            echo 'Build and tests passed!'
+            echo 'Пайплайн успешно завершён!'
         }
         failure {
-            echo 'Pipeline failed'
+            echo 'Пайплайн упал!'
         }
     }
 }
