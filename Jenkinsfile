@@ -31,18 +31,35 @@ pipeline {
             }
             post {
                 always {
-                    junit 'coverage/jest-junit.xml' // если используешь jest-junit репортер
+                    junit 'coverage/jest-junit.xml'
                 }
             }
         }
 
-        stage('Build') {
+        stage('Build Production') {
+            when {
+                branch 'main'
+            }
             steps {
                 sh 'yarn build'
             }
             post {
                 success {
                     archiveArtifacts artifacts: 'dist/**', fingerprint: true
+                }
+            }
+        }
+
+        stage('Build Dev') {
+            when {
+                branch 'dev'
+            }
+            steps {
+                sh 'webpack --config webpack.dev.js --mode development --output-path dev-dist'
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: 'dev-dist/**', fingerprint: true
                 }
             }
         }
