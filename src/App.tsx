@@ -11,6 +11,8 @@ import { PathesConstants } from '@/constants/pathesConstants'
 import HomePage from '@/pages/HomePage'
 import SettingsPage from '@/pages/SettingsPage'
 
+//test
+
 function App() {
     return (
         <ErrorBoundary>
