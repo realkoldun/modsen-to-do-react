@@ -18,9 +18,14 @@ pipeline {
             }
         }
 
+        stage('Install dependencies') {
+            steps {
+                bat 'npm ci'
+            }
+        }
+
         stage('Lint') {
             steps {
-                // В Windows нет "|| true", поэтому используем exit 0
                 bat 'npm run lint || exit 0'
             }
         }
