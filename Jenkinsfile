@@ -14,25 +14,26 @@ pipeline {
         stage('Check Node Version') {
             steps {
                 bat 'node --version'
-                bat 'npm --version'
+                bat 'yarn --version'
             }
         }
 
         stage('Install dependencies') {
             steps {
-                bat 'npm ci'
+                // Устанавливаем зависимости строго по yarn.lock
+                bat 'yarn install --frozen-lockfile'
             }
         }
 
         stage('Lint') {
             steps {
-                bat 'npm run lint || exit 0'
+                bat 'yarn lint || exit 0'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'npm run test'
+                bat 'yarn test'
             }
         }
 
@@ -41,7 +42,7 @@ pipeline {
                 anyOf { branch 'develop'; branch 'main' }
             }
             steps {
-                bat 'npm run build'
+                bat 'yarn build'
                 echo 'Приложение собрано в dist/'
             }
         }
